@@ -15,4 +15,11 @@ export class AuthService {
       data
     );
   }
+
+  userSignup(data) {
+    return this.http.post<{ user: any; message: string }>(
+      `${this.BACKEND_URL}user/signup`,
+      data
+    );
+  }
 }
