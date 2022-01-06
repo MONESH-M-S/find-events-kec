@@ -14,7 +14,7 @@ import { CategoryComponent } from './home/category/category.component';
 import { AccountComponent } from './account/account.component';
 import { SignupComponent } from './account/signup/signup.component';
 import { ProfileComponent } from './account/profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,9 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     PrimengModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
