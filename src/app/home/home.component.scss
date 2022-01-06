@@ -1,0 +1,33 @@
+.home {
+  height: 70vh;
+  background-color: #edece1;
+  margin: 15px auto;
+
+  .hero {
+    align-items: center;
+    .img {
+      text-align: right;
+      img {
+        width: 700px;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .home {
+    height: 37vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .home {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 380px) {
+  .home {
+    height: 68vh;
+  }
+}
