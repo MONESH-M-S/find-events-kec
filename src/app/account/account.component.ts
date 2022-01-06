@@ -19,12 +19,12 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onCancel(): void {
+  onClose(): void {
     this.dialogRef.close();
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.valid , form.invalid)
+    console.log(form.valid, form.invalid);
     if (!form.value.email) {
       return this.messageService.add({
         severity: 'error',

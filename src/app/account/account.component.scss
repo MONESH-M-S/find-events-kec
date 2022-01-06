@@ -1,5 +1,9 @@
 section {
+  .close-icon {
+    justify-content: flex-end;
+  }
   h1 {
     font-weight: 600;
+    margin: 0;
   }
 }
