@@ -1,1 +1,59 @@
-<p>header works!</p>
+<header>
+  <div class="logo">
+    <p-sidebar
+      [(visible)]="visibleSidebar"
+      [baseZIndex]="10000"
+      [transitionOptions]="'300ms'"
+    >
+      <div class="nav">
+        <ul>
+          <li class="hover-underline-animation">
+            <a routerLink="/" (click)="visibleSidebar = false">Home</a>
+          </li>
+          <li class="hover-underline-animation">
+            <a routerLink="/products" (click)="visibleSidebar = false"
+              >Products</a
+            >
+          </li>
+          <li class="hover-underline-animation">
+            <a routerLink="/contact" (click)="visibleSidebar = false"
+              >Contact</a
+            >
+          </li>
+          <li class="hover-underline-animation">
+            <a routerLink="/admin" (click)="visibleSidebar = false">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </p-sidebar>
+    <i
+      class="pi pi-bars"
+      (click)="visibleSidebar = true"
+      style="font-size: 1.5rem"
+    ></i>
+    <h1><a routerLink="/">FindEvents</a></h1>
+  </div>
+  <div class="nav">
+    <ul>
+      <li class="hover-underline-animation"><a routerLink="/">Home</a></li>
+      <li class="hover-underline-animation">
+        <a routerLink="/products">Products</a>
+      </li>
+      <li class="hover-underline-animation">
+        <a routerLink="/contact">Contact</a>
+      </li>
+      <li class="hover-underline-animation">
+        <a routerLink="/admin">Admin</a>
+      </li>
+    </ul>
+  </div>
+  <div class="user">
+    <i
+      class="pi pi-user"
+      style="font-size: 1.5rem"
+      pTooltip="Account"
+      tooltipPosition="top"
+      routerLink="user/login"
+    ></i>
+  </div>
+</header>

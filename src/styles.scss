@@ -9,3 +9,69 @@ body {
   margin: 0;
   font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
+
+.wrapper {
+  margin-top: 10px;
+  a {
+    display: block;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all 0.35s;
+  }
+
+  a span {
+    position: relative;
+    z-index: 2;
+  }
+
+  a:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all 0.35s;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  a:hover:after {
+    width: 100%;
+  }
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #ff003b;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff003b;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
