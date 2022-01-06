@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-account',
@@ -14,7 +15,8 @@ export class AccountComponent implements OnInit {
     public dialogRef: MatDialogRef<AccountComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
@@ -39,7 +41,17 @@ export class AccountComponent implements OnInit {
       });
     }
     if (form.valid && form.value.email && form.value.password) {
-      this.router.navigate(['user/1']);
+      const data = { email: form.value.email, password: form.value.password };
+      this.authService.userLogin(data).subscribe((res) => {
+        if (res.user == null) {
+          return this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: `${res.message}`,
+          });
+        }
+        this.router.navigate([`user/${res.user[0]._id}`]);
+      });
     }
   }
 }

@@ -16,6 +16,7 @@ import { SignupComponent } from './account/signup/signup.component';
 import { ProfileComponent } from './account/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     MaterialModule,
     PrimengModule,
+    HttpClientModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
