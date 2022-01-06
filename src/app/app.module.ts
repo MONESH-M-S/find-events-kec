@@ -11,6 +11,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { CategoryComponent } from './home/category/category.component';
+import { AccountComponent } from './account/account.component';
+import { SignupComponent } from './account/signup/signup.component';
+import { ProfileComponent } from './account/profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -20,15 +25,19 @@ import { CategoryComponent } from './home/category/category.component';
     HomeComponent,
     CarouselComponent,
     CategoryComponent,
+    AccountComponent,
+    SignupComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MaterialModule,
     PrimengModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
