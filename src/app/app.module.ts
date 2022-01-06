@@ -13,7 +13,14 @@ import { CarouselComponent } from './home/carousel/carousel.component';
 import { CategoryComponent } from './home/category/category.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, CarouselComponent, CategoryComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    CarouselComponent,
+    CategoryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
