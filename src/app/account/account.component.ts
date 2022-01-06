@@ -54,4 +54,9 @@ export class AccountComponent implements OnInit {
       });
     }
   }
+
+  onSignup() {
+    this.dialogRef.close();
+    this.router.navigate(['user/signup']);
+  }
 }
