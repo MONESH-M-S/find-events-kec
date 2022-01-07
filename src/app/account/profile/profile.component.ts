@@ -38,4 +38,10 @@ export class ProfileComponent implements OnInit {
       data: { id: this.id },
     });
   }
+
+  editUserDetails() {
+    if (this.id) {
+      this.router.navigate([`user/${this.id}/edit`]);
+    }
+  }
 }
