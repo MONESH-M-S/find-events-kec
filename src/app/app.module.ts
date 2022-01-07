@@ -19,6 +19,7 @@ import { MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteComponent } from './account/profile/delete/delete.component';
 import { EditComponent } from './account/profile/edit/edit.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EditComponent } from './account/profile/edit/edit.component';
     ProfileComponent,
     DeleteComponent,
     EditComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
