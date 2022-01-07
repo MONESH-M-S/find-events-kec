@@ -1,4 +1,5 @@
-<section>
+<p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+<section *ngIf="!isLoading"> 
   <mat-card class="mat-card">
     <mat-card-content>
       <div class="img">

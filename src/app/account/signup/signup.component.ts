@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 export class SignupComponent implements OnInit {
   form: FormGroup;
   gender = ['Male', 'Female'];
+  isLoading: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -24,6 +25,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     if (this.form.invalid) {
       return;
     }
@@ -51,6 +53,7 @@ export class SignupComponent implements OnInit {
         });
       }
     });
+    this.isLoading = false;
   }
 
   private _initUserForm() {

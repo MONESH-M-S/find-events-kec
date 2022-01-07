@@ -14,6 +14,7 @@ export class EditComponent implements OnInit {
   id: string;
   userData: User;
   form: FormGroup;
+  isLoading = false;
   gender = ['Male', 'Female'];
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,7 @@ export class EditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._initUserForm();
 
     this.route.params.subscribe(async (params) => {
@@ -34,6 +36,7 @@ export class EditComponent implements OnInit {
           .subscribe((res) => {
             if (res.user == null) {
               this.router.navigate([`user/signup`]);
+              this.isLoading = false;
               return this.messageService.add({
                 severity: 'error',
                 summary: 'Error',
@@ -43,6 +46,7 @@ export class EditComponent implements OnInit {
             if (res.user) {
               this.userData = res.user[0];
               this._setFormValues();
+              this.isLoading = false;
             }
           });
       }

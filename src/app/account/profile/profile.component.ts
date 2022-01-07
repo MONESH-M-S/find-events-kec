@@ -13,6 +13,7 @@ import { DeleteComponent } from './delete/delete.component';
 export class ProfileComponent implements OnInit {
   id: string;
   userDetail: User;
+  isLoading = false;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe((params) => {
       if (params) {
         this.id = params['id'];
@@ -30,6 +32,7 @@ export class ProfileComponent implements OnInit {
           }
         });
       }
+      this.isLoading = false;
     });
   }
 

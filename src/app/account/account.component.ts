@@ -49,6 +49,11 @@ export class AccountComponent implements OnInit {
             detail: `${res.message}`,
           });
         }
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Login Successfull',
+        });
         this.router.navigate([`user/${res.user[0]._id}`]);
       });
     }

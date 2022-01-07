@@ -1,5 +1,6 @@
 <p-toast></p-toast>
-<section>
+<p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+<section *ngIf="!isLoading">
   <div class="container">
     <p-card class="card" styleClass="card">
       <ng-template pTemplate="header">
