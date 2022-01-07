@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Admin } from '../admin.model';
 import { AdminService } from '../admin.service';
 import { AddAdminDialogComponent } from './add-admin-dialog/add-admin-dialog.component';
 
@@ -12,6 +13,7 @@ import { AddAdminDialogComponent } from './add-admin-dialog/add-admin-dialog.com
 export class AdminHomeComponent implements OnInit {
   id: string;
   isAdmin: boolean = false;
+  adminDetails: Admin;
   constructor(
     private route: ActivatedRoute,
     private dialog: MatDialog,
@@ -25,6 +27,7 @@ export class AdminHomeComponent implements OnInit {
         this.adminService.getAdminDetailById(this.id).subscribe((res) => {
           if (res.admin !== null) {
             this.isAdmin = res.admin[0].isAdmin;
+            this.adminDetails = res.admin[0];
           }
         });
       }
@@ -37,4 +40,6 @@ export class AdminHomeComponent implements OnInit {
       data: { id: this.id },
     });
   }
+
+  showAllAdminDialog() {}
 }

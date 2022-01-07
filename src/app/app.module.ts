@@ -22,6 +22,7 @@ import { EditComponent } from './account/profile/edit/edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AddAdminDialogComponent } from './admin/admin-home/add-admin-dialog/add-admin-dialog.component';
+import { AdminAddedEventsComponent } from './admin/admin-home/admin-added-events/admin-added-events.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AddAdminDialogComponent } from './admin/admin-home/add-admin-dialog/add
     AdminComponent,
     AdminHomeComponent,
     AddAdminDialogComponent,
+    AdminAddedEventsComponent,
   ],
   imports: [
     BrowserModule,

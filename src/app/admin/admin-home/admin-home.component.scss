@@ -13,9 +13,26 @@ mat-card {
   }
 
   mat-card-content {
+    width: 80%;
+    margin: auto;
+    display: flex;
     .img {
       img {
         width: 160px;
+      }
+    }
+    .detail {
+      h2 {
+        margin-top: 55px;
+        margin-bottom: 0;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+      }
+
+      h4 {
+        font-size: 18px;
+        font-weight: 500;
       }
     }
   }

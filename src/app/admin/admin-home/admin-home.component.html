@@ -5,16 +5,40 @@
       mat-stroked-button
       color="primary"
       (click)="showAdminAddDialog()"
+      pTooltip="Click to add a new Admin"
+      tooltipPosition="bottom"
     >
       <mat-icon>add</mat-icon> Add New Admin
+    </button>
+    <button
+      *ngIf="isAdmin"
+      mat-stroked-button
+      color="accent"
+      (click)="showAllAdminDialog()"
+      pTooltip="Click to view all other Admin(s)"
+      tooltipPosition="bottom"
+    >
+      <mat-icon> insert_drive_file</mat-icon> Show All Admin(s)
     </button>
   </mat-card-actions>
   <mat-card-content>
     <div class="img">
       <img
+        pTooltip="Verified Admin"
+        tooltipPosition="top"
         src="../../../assets/streamline-icon-user-secure@400x400.png"
         alt="Admin"
       />
     </div>
+    <div class="detail">
+      <h2>
+        {{ adminDetails.name | uppercase }} -
+        {{ adminDetails.department | titlecase }}
+      </h2>
+      <h4>( {{ adminDetails.email }} )</h4>
+    </div>
   </mat-card-content>
+  <div class="table">
+    <app-admin-added-events></app-admin-added-events>
+  </div>
 </mat-card>
