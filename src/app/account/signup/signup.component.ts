@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService,
+    private userService: UserService,
     private messageService: MessageService
   ) {}
 
@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
       phone: f.phone,
       gender: f.gender,
     };
-    this.authService.userSignup(userData).subscribe((res) => {
+    this.userService.userSignup(userData).subscribe((res) => {
       if (res.user) {
         this.messageService.add({
           severity: 'success',

@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class UserService {
   BACKEND_URL = environment.BACKEND_URL;
   constructor(private http: HttpClient) {}
 
@@ -22,4 +22,6 @@ export class AuthService {
       data
     );
   }
+
+  getUserDetailById(id: string) {}
 }

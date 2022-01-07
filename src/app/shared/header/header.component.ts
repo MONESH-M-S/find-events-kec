@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MessageService } from 'primeng/api';
 import { AccountComponent } from 'src/app/account/account.component';
 
 @Component({
