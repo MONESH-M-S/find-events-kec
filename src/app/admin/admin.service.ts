@@ -17,4 +17,17 @@ export class AdminService {
       data
     );
   }
+
+  adminSignup(adminData: Admin) {
+    return this.http.post<{ admin: Admin; message: string }>(
+      `${this.BACKEND_URL}admin/signup`,
+      adminData
+    );
+  }
+
+  getAdminDetailById(id: string) {
+    return this.http.get<{ admin: Admin; message: string }>(
+      `${this.BACKEND_URL}admin/detail/${id}`
+    );
+  }
 }

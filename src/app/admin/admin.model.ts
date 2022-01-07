@@ -3,5 +3,6 @@ export interface Admin {
   name?: string;
   email?: string;
   password?: string;
+  department?: string;
   isAdmin?: boolean;
 }

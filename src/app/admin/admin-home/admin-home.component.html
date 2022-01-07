@@ -1,1 +1,20 @@
-<p>admin-home works!</p>
+<mat-card>
+  <mat-card-actions>
+    <button
+      *ngIf="isAdmin"
+      mat-stroked-button
+      color="primary"
+      (click)="showAdminAddDialog()"
+    >
+      <mat-icon>add</mat-icon> Add New Admin
+    </button>
+  </mat-card-actions>
+  <mat-card-content>
+    <div class="img">
+      <img
+        src="../../../assets/streamline-icon-user-secure@400x400.png"
+        alt="Admin"
+      />
+    </div>
+  </mat-card-content>
+</mat-card>

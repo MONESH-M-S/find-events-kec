@@ -1,0 +1,22 @@
+mat-card {
+  width: 90%;
+  margin: auto;
+  height: 87vh;
+
+  mat-card-actions {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 0;
+    mat-icon {
+      margin-top: -3px;
+    }
+  }
+
+  mat-card-content {
+    .img {
+      img {
+        width: 160px;
+      }
+    }
+  }
+}

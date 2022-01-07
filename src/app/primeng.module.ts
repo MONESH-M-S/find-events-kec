@@ -8,6 +8,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     InputTextModule,
     ButtonModule,
     ProgressSpinnerModule,
+    InputSwitchModule,
   ],
   exports: [
     TooltipModule,
@@ -31,6 +33,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     InputTextModule,
     ButtonModule,
     ProgressSpinnerModule,
+    InputSwitchModule,
   ],
 })
 export class PrimengModule {}
