@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeleteComponent } from './account/profile/delete/delete.component';
 import { EditComponent } from './account/profile/edit/edit.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AdminComponent } from './admin/admin.component';
     DeleteComponent,
     EditComponent,
     AdminComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,

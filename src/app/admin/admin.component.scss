@@ -1,0 +1,37 @@
+mat-card {
+  width: 90%;
+  margin: auto;
+  margin-top: 80px;
+  height: 70vh;
+
+  mat-card-title {
+    .img {
+      text-align: center;
+      margin-top: -100px;
+      img {
+        width: 240px;
+
+        @media (max-width: 700px) {
+          width: 180px;
+        }
+      }
+    }
+  }
+
+  mat-card-content {
+    width: 35%;
+    margin: auto;
+
+    .input {
+      margin: 25px auto;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      width: 80%;
+    }
+  }
+}
