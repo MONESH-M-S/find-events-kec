@@ -1,15 +1,70 @@
 section {
   margin-top: 15px;
-  mat-card {
+  .mat-card {
     width: 90%;
     margin: auto;
     height: 85vh;
 
     &-content {
+      text-align: center;
       .img {
-        text-align: center;
         img {
           width: 160px;
+        }
+      }
+      .user-data {
+        h3 {
+          font-size: 2rem;
+          font-weight: 600;
+          margin: 0;
+          margin-bottom: 5px;
+        }
+        h5 {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      }
+      .events {
+        margin: 50px auto;
+        h4 {
+          margin: 0;
+          font-size: 2rem;
+          font-weight: 500;
+          color: #723b7e;
+          margin: 15px auto;
+        }
+        p {
+          font-size: 1.2rem;
+        }
+        a {
+          font-size: 1.1rem;
+          margin-top: 5px;
+          cursor: pointer;
+          color: blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &:active {
+            color: red;
+          }
+        }
+
+        @media (max-width: 550px) {
+          h4 {
+            font-size: 1.7rem;
+            margin: 12px auto;
+          }
+        }
+      }
+      .button {
+        button {
+          margin: auto 15px;
+          span {
+            font-size: 16px;
+            margin-left: 5px;
+          }
         }
       }
     }
