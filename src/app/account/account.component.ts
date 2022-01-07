@@ -26,7 +26,6 @@ export class AccountComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.valid, form.invalid);
     if (!form.value.email) {
       return this.messageService.add({
         severity: 'error',

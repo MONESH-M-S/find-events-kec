@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../user.model';
 import { UserService } from '../user.service';
 import { DeleteComponent } from './delete/delete.component';
 
@@ -11,7 +12,7 @@ import { DeleteComponent } from './delete/delete.component';
 })
 export class ProfileComponent implements OnInit {
   id: string;
-  userDetail: any;
+  userDetail: User;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,

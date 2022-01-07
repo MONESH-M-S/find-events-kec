@@ -1,1 +1,92 @@
-<p>edit works!</p>
+<p-toast></p-toast>
+<section>
+  <div class="container">
+    <p-card class="card" styleClass="card">
+      <ng-template pTemplate="header">
+        <h3 class="header">Edit Your Detail Here!</h3>
+      </ng-template>
+      <div class="grid">
+        <div class="col-12">
+          <form [formGroup]="form">
+            <div class="p-fluid p-formgrid grid">
+              <div class="field col-12 lg:col-6">
+                <label for="name">Name</label>
+                <input
+                  formControlName="name"
+                  id="name"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('name').value"
+                  class="p-error"
+                  >Name is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-6">
+                <label for="email">Email</label>
+                <input
+                  formControlName="email"
+                  id="email"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('email').value"
+                  class="p-error"
+                  >Email is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-6">
+                <label for="password">Password</label>
+                <input
+                  formControlName="password"
+                  id="password"
+                  type="password"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('password').value"
+                  class="p-error"
+                  >Password is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-6">
+                <label for="phone">Phone</label><br />
+                <p-inputMask
+                  mask="999-999-9999"
+                  formControlName="phone"
+                  id="phone"
+                  placeholder="999-999-9999"
+                ></p-inputMask>
+                <small
+                  *ngIf="form.touched && !form.get('phone').value"
+                  class="p-error"
+                  >Phone number is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-6">
+                <label for="gender">Gender</label><br />
+                <p-dropdown
+                  [options]="gender"
+                  formControlName="gender"
+                  placeholder="Choose your gender"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+            </div>
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Update"
+              class="p-button-raised p-button-success"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+            ></button>
+          </form>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</section>
