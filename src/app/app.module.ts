@@ -17,6 +17,7 @@ import { ProfileComponent } from './account/profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteComponent } from './account/profile/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     AccountComponent,
     SignupComponent,
     ProfileComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

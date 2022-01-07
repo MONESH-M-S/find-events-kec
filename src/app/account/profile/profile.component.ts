@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { DeleteComponent } from './delete/delete.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,13 @@ export class ProfileComponent implements OnInit {
           }
         });
       }
+    });
+  }
+
+  onDeleteUser() {
+    let dialogRef = this.dialog.open(DeleteComponent, {
+      width: '450px',
+      data: { id: this.id },
     });
   }
 }

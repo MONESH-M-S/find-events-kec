@@ -28,4 +28,10 @@ export class UserService {
       `${this.BACKEND_URL}user/${id}`
     );
   }
+
+  deleteUser(id: string) {
+    return this.http.delete<{ user: any; message: string }>(
+      `${this.BACKEND_URL}user/${id}`
+    );
+  }
 }

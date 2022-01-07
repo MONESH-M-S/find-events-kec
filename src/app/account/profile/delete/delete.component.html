@@ -1,0 +1,12 @@
+<p-toast></p-toast>
+<h3 mat-dialog-title>Are yor Sure?</h3>
+<h4 mat-dialog-content>
+  <span>Note: </span>Deleting your account will delete all the events you have
+  registered!
+</h4>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="onCloseDialog()">Cancel</button>
+  <button mat-stroked-button color="warn" (click)="onDeleteUser()">
+    Delete
+  </button>
+</div>
