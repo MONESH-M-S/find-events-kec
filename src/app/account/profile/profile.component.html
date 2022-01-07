@@ -1,7 +1,23 @@
 <section>
-    <mat-card>
-        <mat-card-title>
-
-        </mat-card-title>
-    </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <div class="img">
+        <img
+          *ngIf="userDetail.gender === 'Male'"
+          src="../../../assets/streamline-icon-avatar-5@400x400.png"
+          alt=""
+        />
+        <img
+          *ngIf="userDetail.gender === 'Female'"
+          src="../../../assets/streamline-icon-avatar-2@400x400.png"
+          alt=""
+        />
+        <img
+          *ngIf="!userDetail.gender"
+          src="../../../assets/streamline-icon-avatar-neutral@400x400.png"
+          alt=""
+        />
+      </div>
+    </mat-card-content>
+  </mat-card>
 </section>

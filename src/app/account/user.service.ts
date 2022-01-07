@@ -23,5 +23,9 @@ export class UserService {
     );
   }
 
-  getUserDetailById(id: string) {}
+  getUserDetailById(id: string) {
+    return this.http.get<{ user: any; message: string }>(
+      `${this.BACKEND_URL}user/${id}`
+    );
+  }
 }
