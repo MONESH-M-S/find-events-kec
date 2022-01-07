@@ -38,6 +38,18 @@
       <h4>( {{ adminDetails.email }} )</h4>
     </div>
   </mat-card-content>
+
+  <div class="add-event">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="addNewEvent()"
+      pTooltip="Add a New Event"
+      tooltipPosition="top"
+    >
+      <mat-icon>add_circle</mat-icon> Add New Event
+    </button>
+  </div>
   <div class="table">
     <app-admin-added-events></app-admin-added-events>
   </div>

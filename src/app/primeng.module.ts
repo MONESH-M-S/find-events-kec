@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     ButtonModule,
     ProgressSpinnerModule,
     InputSwitchModule,
+    TableModule,
   ],
   exports: [
     TooltipModule,
@@ -34,6 +36,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     ButtonModule,
     ProgressSpinnerModule,
     InputSwitchModule,
+    TableModule,
   ],
 })
 export class PrimengModule {}

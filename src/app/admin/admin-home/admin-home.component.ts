@@ -42,4 +42,6 @@ export class AdminHomeComponent implements OnInit {
   }
 
   showAllAdminDialog() {}
+
+  addNewEvent() {}
 }

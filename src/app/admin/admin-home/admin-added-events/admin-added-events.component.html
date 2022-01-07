@@ -1,3 +1,51 @@
 <section>
-    <h2>Event Added By You,</h2>
+  <h2>Event Added By You,</h2>
+  <div class="card">
+    <p-table
+      [value]="events"
+      [scrollable]="true"
+      scrollHeight="240px"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">
+            Name <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th pSortableColumn="venue">
+            Venue <p-sortIcon field="venue"></p-sortIcon>
+          </th>
+          <th pSortableColumn="date">
+            Added-Date <p-sortIcon field="date"></p-sortIcon>
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.venue }}</td>
+          <td>{{ product.date }}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-eye"
+              class="p-button-rounded p-button-primary p-button-outlined mr-3"
+              pTooltip="View Event"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-pencil"
+              pTooltip="Edit Event"
+              class="p-button-rounded p-button-success p-button-outlined mr-3"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </section>
