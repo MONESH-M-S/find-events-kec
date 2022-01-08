@@ -1,1 +1,11 @@
-<p>delete-admin-dialog works!</p>
+<p-toast></p-toast>
+<h2 mat-dialog-title>Are You Sure?</h2>
+<h4 mat-dialog-content>
+  <span>Note: </span>Once you deleted, that cannot be retrived!
+</h4>
+<div class="buttons" mat-dialog-actions>
+  <button (click)="onCloseDialog()" mat-button cdkFocusInitial>Cancel</button>
+  <button (click)="onDelete()" mat-button color="warn">
+    <mat-icon>delete_forever</mat-icon> Delete
+  </button>
+</div>

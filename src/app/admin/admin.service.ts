@@ -47,4 +47,8 @@ export class AdminService {
       `${this.BACKEND_URL}admin/detail/${id}`
     );
   }
+
+  deleteAdminById(id: string) {
+    return this.http.delete<{ message: string }>(`${this.BACKEND_URL}admin/${id}`);
+  }
 }

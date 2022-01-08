@@ -1,12 +1,30 @@
 <p-toast></p-toast>
 <section>
   <mat-card>
+    <mat-card-actions>
+      <div class="back-button">
+        <button (click)="goBack()" mat-button color="warn">
+          <mat-icon>keyboard_arrow_left</mat-icon>Back
+        </button>
+      </div>
+      <div class="add-button">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="showAdminAddDialog()"
+          pTooltip="Click to add a new Admin"
+          tooltipPosition="bottom"
+        >
+          <mat-icon>add</mat-icon> Add New Admin
+        </button>
+      </div>
+    </mat-card-actions>
     <h2>Showing List of All Available Admins,</h2>
     <div class="card">
       <p-table
         [value]="admins"
         [scrollable]="true"
-        scrollHeight="500px"
+        scrollHeight="400px"
         responsiveLayout="scroll"
         styleClass="p-datatable-gridlines"
       >
@@ -21,14 +39,29 @@
             <th pSortableColumn="department">
               department <p-sortIcon field="department"></p-sortIcon>
             </th>
+            <th>Is Admin</th>
             <th></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-admin>
           <tr>
-            <td>{{ admin.name }}</td>
-            <td>{{ admin.email }}</td>
-            <td>{{ admin.department }}</td>
+            <td>{{ admin.name | titlecase }}</td>
+            <td>{{ admin.email | lowercase }}</td>
+            <td>{{ admin.department | uppercase }}</td>
+            <td>
+              <p-tag
+                *ngIf="admin.isAdmin"
+                icon="pi pi-check"
+                severity="success"
+                [rounded]="true"
+              ></p-tag>
+              <p-tag
+                *ngIf="!admin.isAdmin"
+                icon="pi pi-times"
+                severity="danger"
+                [rounded]="true"
+              ></p-tag>
+            </td>
             <td>
               <button
                 pButton

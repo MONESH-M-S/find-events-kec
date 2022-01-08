@@ -1,8 +1,17 @@
 section {
   margin-top: 15px;
   mat-card {
-    width: 80%;
+    width: 95%;
     margin: auto;
-    height: 80vh;
+    height: 85vh;
+
+    .add-button {
+      text-align: right;
+      margin-right: 20px;
+      margin-bottom: 0;
+      mat-icon {
+        margin-top: -3px;
+      }
+    }
   }
 }

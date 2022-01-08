@@ -1,9 +1,11 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Admin } from '../../admin.model';
 import { AdminService } from '../../admin.service';
+import { AddAdminDialogComponent } from '../add-admin-dialog/add-admin-dialog.component';
 import { DeleteAdminDialogComponent } from './delete-admin-dialog/delete-admin-dialog.component';
 import { EditAdminDialogComponent } from './edit-admin-dialog/edit-admin-dialog.component';
 
@@ -19,7 +21,8 @@ export class ShowAllAdminComponent implements OnInit, OnDestroy {
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +43,32 @@ export class ShowAllAdminComponent implements OnInit, OnDestroy {
     this.dialog.open(EditAdminDialogComponent, {
       width: '550px',
       height: '550px',
+      data: { id: id },
     });
   }
 
   deleteAdmin(id: string) {
-    this.dialog.open(DeleteAdminDialogComponent, {
+    let dialogRef = this.dialog.open(DeleteAdminDialogComponent, {
       width: '350px',
+      data: { id: id },
     });
+    dialogRef.afterClosed().subscribe(() => {
+      this.adminService.getAllAdmins();
+    });
+  }
+
+  showAdminAddDialog() {
+    let dialogRef = this.dialog.open(AddAdminDialogComponent, {
+      width: '450px',
+      data: { id: this.id },
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.adminService.getAllAdmins();
+    });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnDestroy(): void {
