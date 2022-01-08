@@ -159,6 +159,7 @@
                   customUpload="true"
                   (uploadHandler)="onUpload($event)"
                   chooseLabel="Browse"
+                  pTooltip="After Inserting Image, Click Again to Upload"
                 >
                 </p-fileUpload>
               </div>
@@ -168,9 +169,19 @@
               pRipple
               type="button"
               label="Submit"
-              class="p-button-raised p-button-success"
+              class="p-button-raised p-button-success mr-4"
               (click)="onSubmit()"
               [disabled]="form.invalid"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Clear"
+              class="p-button-raised p-button-danger mr-4"
+              (click)="clearForm()"
+              pTooltip="Clear Form"
+              tooltipPosition="top"
             ></button>
           </form>
         </div>

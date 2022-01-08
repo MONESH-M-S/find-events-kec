@@ -49,6 +49,16 @@ export class AdminService {
   }
 
   deleteAdminById(id: string) {
-    return this.http.delete<{ message: string }>(`${this.BACKEND_URL}admin/${id}`);
+    return this.http.delete<{ message: string }>(
+      `${this.BACKEND_URL}admin/${id}`
+    );
+  }
+
+  // Add-new event
+  addNewEvent(eventData: any) {
+    return this.http.post<{ event: any; message: string }>(
+      `${this.BACKEND_URL}event/new`,
+      eventData
+    );
   }
 }

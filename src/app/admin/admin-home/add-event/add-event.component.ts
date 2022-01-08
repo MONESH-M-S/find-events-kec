@@ -1,6 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { AdminService } from '../../admin.service';
 import { mimeType } from './mime-type.validators';
 
 @Component({
@@ -10,9 +13,22 @@ import { mimeType } from './mime-type.validators';
 })
 export class AddEventComponent implements OnInit {
   form: FormGroup;
-  constructor(private location: Location, private formBuilder: FormBuilder) {}
+  id: string;
+  constructor(
+    private location: Location,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private adminService: AdminService,
+    private messageService: MessageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      if (params) {
+        this.id = params['id'];
+      }
+    });
     this._initEventForm();
   }
 
@@ -38,6 +54,7 @@ export class AddEventComponent implements OnInit {
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
       description: ['', [Validators.required]],
+      id: [''],
       image: [
         '',
         { validators: [Validators.required], asyncValidators: [mimeType] },
@@ -45,10 +62,54 @@ export class AddEventComponent implements OnInit {
     });
   }
 
+  clearForm() {
+    this.form.reset();
+  }
+
   onSubmit() {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value);
+    const f = this.form.value;
+    const eventData = new FormData();
+    eventData.append('name', f.name);
+    eventData.append('venue', f.venue);
+    eventData.append('organiser_name', f.organiser_name);
+    eventData.append('email', f.email);
+    eventData.append('phone', f.phone);
+    eventData.append('a_phone', f.a_phone);
+    eventData.append('registrationStart', f.registrationStart);
+    eventData.append('registrationEnd', f.registrationEnd);
+    eventData.append('eventDate', f.eventDate);
+    eventData.append('description', f.description);
+    eventData.append('id', this.id);
+    eventData.append('image', f.image, f.name);
+
+    this.adminService.addNewEvent(eventData).subscribe(
+      (res) => {
+        if (res.event !== null) {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: res.message,
+          });
+          this.router;
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: res.message,
+          });
+        }
+      },
+      (err) => {
+        console.log(err);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: err,
+        });
+      }
+    );
   }
 }
