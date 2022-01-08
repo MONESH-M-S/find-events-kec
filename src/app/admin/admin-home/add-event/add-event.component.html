@@ -1,0 +1,156 @@
+<p-toast></p-toast>
+<section>
+  <mat-card>
+    <div class="back-button">
+      <button (click)="goBack()" mat-button color="warn">
+        <mat-icon>keyboard_arrow_left</mat-icon>Back
+      </button>
+    </div>
+    <mat-card-title>
+      <h2>You Can Add a New Event Here,</h2>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="grid">
+        <div class="col-12">
+          <form [formGroup]="form">
+            <div class="p-fluid p-formgrid grid">
+              <div class="field col-12 lg:col-4">
+                <label for="name">Event-Name</label>
+                <input
+                  formControlName="name"
+                  id="name"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('name').value"
+                  class="p-error"
+                  >Event-Name is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="venue">Event-Venue</label>
+                <input
+                  formControlName="venue"
+                  id="venue"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('venue').value"
+                  class="p-error"
+                  >Event-Venue is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="organiser_name">Event-Oraginser Name</label>
+                <input
+                  formControlName="organiser_name"
+                  id="organiser_name"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('organiser_name').value"
+                  class="p-error"
+                  >organiser-name is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="email">Contact-Email</label>
+                <input
+                  formControlName="email"
+                  id="email"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('email').value"
+                  class="p-error"
+                  >Email is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="phone">Phone</label><br />
+                <p-inputMask
+                  mask="999-999-9999"
+                  formControlName="phone"
+                  id="phone"
+                  placeholder="999-999-9999"
+                ></p-inputMask>
+                <small
+                  *ngIf="form.touched && !form.get('phone').value"
+                  class="p-error"
+                  >Phone number is required</small
+                >
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="a_phone">Alternative-Phone</label><br />
+                <p-inputMask
+                  mask="999-999-9999"
+                  formControlName="a_phone"
+                  id="a_phone"
+                  placeholder="999-999-9999"
+                ></p-inputMask>
+                <small
+                  *ngIf="form.touched && !form.get('a_phone').value"
+                  class="p-error"
+                  >Alternative Phone number is required</small
+                >
+              </div>
+              <div class="field col-8">
+                <label for="description">Describe About the Event</label><br />
+                <p-editor
+                  id="description"
+                  formControlName="description"
+                  [style]="{ height: '120px' }"
+                >
+                  <ng-template pTemplate="header">
+                    <span class="ql-formats">
+                      <button
+                        type="button"
+                        class="ql-bold"
+                        aria-label="Bold"
+                      ></button>
+                      <button
+                        type="button"
+                        class="ql-italic"
+                        aria-label="Italic"
+                      ></button>
+                      <button
+                        type="button"
+                        class="ql-underline"
+                        aria-label="Underline"
+                      ></button>
+                    </span> </ng-template
+                ></p-editor>
+              </div>
+              <div class="field col-4">
+                <label for="image">Event Image/Poster</label><br />
+                <p-fileUpload
+                  mode="basic"
+                  name="demo"
+                  accept="image/*"
+                  maxFileSize="1000000"
+                  customUpload="true"
+                  (uploadHandler)="onUpload($event)"
+                  chooseLabel="Browse"
+                >
+                </p-fileUpload>
+              </div>
+            </div>
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Submit"
+              class="p-button-raised p-button-success"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+            ></button>
+          </form>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

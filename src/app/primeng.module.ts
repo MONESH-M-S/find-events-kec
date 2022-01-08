@@ -11,6 +11,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { EditorModule } from 'primeng/editor';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   imports: [
@@ -26,6 +28,8 @@ import { TagModule } from 'primeng/tag';
     InputSwitchModule,
     TableModule,
     TagModule,
+    FileUploadModule,
+    EditorModule,
   ],
   exports: [
     TooltipModule,
@@ -40,6 +44,8 @@ import { TagModule } from 'primeng/tag';
     InputSwitchModule,
     TableModule,
     TagModule,
+    FileUploadModule,
+    EditorModule,
   ],
 })
 export class PrimengModule {}

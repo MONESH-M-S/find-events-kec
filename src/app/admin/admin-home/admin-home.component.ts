@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Admin } from '../admin.model';
 import { AdminService } from '../admin.service';
 import { AddAdminDialogComponent } from './add-admin-dialog/add-admin-dialog.component';
-import { ShowAllAdminComponent } from './show-all-admin/show-all-admin.component';
 
 @Component({
   selector: 'app-admin-home',
@@ -44,8 +43,10 @@ export class AdminHomeComponent implements OnInit {
   }
 
   showAllAdmin() {
-    this.router.navigate([`admin/${this.id}/show/admins`])
+    this.router.navigate([`admin/${this.id}/show/admins`]);
   }
 
-  addNewEvent() {}
+  addNewEvent() {
+    this.router.navigate([`admin/${this.id}/add/event`]);
+  }
 }

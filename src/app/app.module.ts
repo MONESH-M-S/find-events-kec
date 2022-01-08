@@ -25,6 +25,8 @@ import { AddAdminDialogComponent } from './admin/admin-home/add-admin-dialog/add
 import { AdminAddedEventsComponent } from './admin/admin-home/admin-added-events/admin-added-events.component';
 import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
 import { DeleteAdminDialogComponent } from './admin/admin-home/show-all-admin/delete-admin-dialog/delete-admin-dialog.component';
+import { EventComponent } from './event/event.component';
+import { AddEventComponent } from './admin/admin-home/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { DeleteAdminDialogComponent } from './admin/admin-home/show-all-admin/de
     AdminAddedEventsComponent,
     ShowAllAdminComponent,
     DeleteAdminDialogComponent,
+    EventComponent,
+    AddEventComponent,
   ],
   imports: [
     BrowserModule,

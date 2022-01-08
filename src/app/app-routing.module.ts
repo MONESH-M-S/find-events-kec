@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditComponent } from './account/profile/edit/edit.component';
 import { ProfileComponent } from './account/profile/profile.component';
 import { SignupComponent } from './account/signup/signup.component';
+import { AddEventComponent } from './admin/admin-home/add-event/add-event.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
 import { AdminComponent } from './admin/admin.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminComponent },
       { path: ':id', component: AdminHomeComponent },
+      { path: ':id/add/event', component: AddEventComponent },
       { path: ':id/show/admins', component: ShowAllAdminComponent },
     ],
   },
