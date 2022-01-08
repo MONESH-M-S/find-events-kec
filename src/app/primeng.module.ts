@@ -12,7 +12,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { EditorModule } from 'primeng/editor';
-import {FileUploadModule} from 'primeng/fileupload';
+import { FileUploadModule } from 'primeng/fileupload';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {FileUploadModule} from 'primeng/fileupload';
     TagModule,
     FileUploadModule,
     EditorModule,
+    CalendarModule,
   ],
   exports: [
     TooltipModule,
@@ -46,6 +48,7 @@ import {FileUploadModule} from 'primeng/fileupload';
     TagModule,
     FileUploadModule,
     EditorModule,
+    CalendarModule,
   ],
 })
 export class PrimengModule {}

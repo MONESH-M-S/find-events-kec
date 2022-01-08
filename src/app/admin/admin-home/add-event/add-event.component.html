@@ -98,6 +98,30 @@
                   >Alternative Phone number is required</small
                 >
               </div>
+              <div class="field col-12 lg:col-4">
+                <label for="dateformat">Registration Start-Date</label>
+                <p-calendar
+                  formControlName="registrationStart"
+                  dateFormat="dd-mm-yy"
+                  inputId="dateformat"
+                ></p-calendar>
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="dateformat">Registration End-Date</label>
+                <p-calendar
+                  formControlName="registrationEnd"
+                  dateFormat="dd-mm-yy"
+                  inputId="dateformat"
+                ></p-calendar>
+              </div>
+              <div class="field col-12 lg:col-4">
+                <label for="dateformat">Event Date</label>
+                <p-calendar
+                  formControlName="eventDate"
+                  dateFormat="dd-mm-yy"
+                  inputId="dateformat"
+                ></p-calendar>
+              </div>
               <div class="field col-8">
                 <label for="description">Describe About the Event</label><br />
                 <p-editor
