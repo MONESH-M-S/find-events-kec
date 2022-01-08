@@ -1,0 +1,58 @@
+<p-toast></p-toast>
+<section>
+  <mat-card>
+    <h2>Showing List of All Available Admins,</h2>
+    <div class="card">
+      <p-table
+        [value]="admins"
+        [scrollable]="true"
+        scrollHeight="500px"
+        responsiveLayout="scroll"
+        styleClass="p-datatable-gridlines"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="name">
+              Name <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="email">
+              email <p-sortIcon field="email"></p-sortIcon>
+            </th>
+            <th pSortableColumn="department">
+              department <p-sortIcon field="department"></p-sortIcon>
+            </th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-admin>
+          <tr>
+            <td>{{ admin.name }}</td>
+            <td>{{ admin.email }}</td>
+            <td>{{ admin.department }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                pTooltip="Edit Admin"
+                class="p-button-rounded p-button-success p-button-outlined mr-3"
+                (click)="editAdmin(admin._id)"
+              ></button>
+              <button
+                *ngIf="admin._id !== id"
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-outlined mr-3"
+                pTooltip="Delete Admin"
+                (click)="deleteAdmin(admin._id)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </mat-card>
+</section>

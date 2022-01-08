@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Admin } from '../admin.model';
 import { AdminService } from '../admin.service';
 import { AddAdminDialogComponent } from './add-admin-dialog/add-admin-dialog.component';
+import { ShowAllAdminComponent } from './show-all-admin/show-all-admin.component';
 
 @Component({
   selector: 'app-admin-home',
@@ -17,7 +18,8 @@ export class AdminHomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +43,9 @@ export class AdminHomeComponent implements OnInit {
     });
   }
 
-  showAllAdminDialog() {}
+  showAllAdmin() {
+    this.router.navigate([`admin/${this.id}/show/admins`])
+  }
 
   addNewEvent() {}
 }

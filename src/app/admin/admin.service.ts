@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 import { Admin } from './admin.model';
 
 @Injectable({
@@ -8,6 +9,8 @@ import { Admin } from './admin.model';
 })
 export class AdminService {
   BACKEND_URL = environment.BACKEND_URL;
+  private getAdmins = new Subject<{ admins: Admin[] }>();
+
   constructor(private http: HttpClient) {}
 
   adminLogin(email: string, password: string) {
@@ -23,6 +26,20 @@ export class AdminService {
       `${this.BACKEND_URL}admin/signup`,
       adminData
     );
+  }
+
+  getAdminUpdated() {
+    return this.getAdmins.asObservable();
+  }
+
+  getAllAdmins() {
+    return this.http
+      .get<{ admins: Admin[]; message: string }>(`${this.BACKEND_URL}admin/`)
+      .subscribe((res) => {
+        this.getAdmins.next({
+          admins: res.admins,
+        });
+      });
   }
 
   getAdminDetailById(id: string) {

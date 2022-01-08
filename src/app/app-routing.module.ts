@@ -4,6 +4,7 @@ import { EditComponent } from './account/profile/edit/edit.component';
 import { ProfileComponent } from './account/profile/profile.component';
 import { SignupComponent } from './account/signup/signup.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminComponent },
       { path: ':id', component: AdminHomeComponent },
+      { path: ':id/show/admins', component: ShowAllAdminComponent },
     ],
   },
   { path: '**', component: HomeComponent },
