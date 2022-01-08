@@ -7,7 +7,6 @@ import { Admin } from '../../admin.model';
 import { AdminService } from '../../admin.service';
 import { AddAdminDialogComponent } from '../add-admin-dialog/add-admin-dialog.component';
 import { DeleteAdminDialogComponent } from './delete-admin-dialog/delete-admin-dialog.component';
-import { EditAdminDialogComponent } from './edit-admin-dialog/edit-admin-dialog.component';
 
 @Component({
   selector: 'app-show-all-admin',
@@ -37,14 +36,6 @@ export class ShowAllAdminComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         this.admins = res.admins;
       });
-  }
-
-  editAdmin(id: string) {
-    this.dialog.open(EditAdminDialogComponent, {
-      width: '550px',
-      height: '550px',
-      data: { id: id },
-    });
   }
 
   deleteAdmin(id: string) {
