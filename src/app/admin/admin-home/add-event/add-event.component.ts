@@ -95,7 +95,7 @@ export class AddEventComponent implements OnInit {
             summary: 'Success',
             detail: res.message,
           });
-          this.router;
+          this.router.navigate([`event/${res.event._id}`]);
         } else {
           this.messageService.add({
             severity: 'error',

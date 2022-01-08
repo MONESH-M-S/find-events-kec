@@ -1,1 +1,10 @@
-<p>event-main works!</p>
+<section>
+  <mat-card>
+    <mat-card-title>
+      <h2>{{ eventDetail.name }}</h2>
+    </mat-card-title>
+    <mat-card-content>
+      <img [src]="eventDetail.image" [alt]="eventDetail.name" [width]="350" />
+    </mat-card-content>
+  </mat-card>
+</section>
