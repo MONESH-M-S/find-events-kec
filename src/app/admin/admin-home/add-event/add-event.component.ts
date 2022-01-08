@@ -14,6 +14,9 @@ import { mimeType } from './mime-type.validators';
 export class AddEventComponent implements OnInit {
   form: FormGroup;
   id: string;
+  mode = ['Online', 'Offline'];
+  imageDisplay!: string | null;
+
   constructor(
     private location: Location,
     private formBuilder: FormBuilder,
@@ -32,10 +35,15 @@ export class AddEventComponent implements OnInit {
     this._initEventForm();
   }
 
-  onUpload(event) {
+  onUpload(event: any) {
     const file = event.files[0];
     this.form.patchValue({ image: file });
     this.form.get('image').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageDisplay = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 
   goBack() {
@@ -46,10 +54,7 @@ export class AddEventComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       venue: ['', [Validators.required]],
-      organiser_name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      a_phone: ['', [Validators.required]],
+      mode: ['', [Validators.required]],
       registrationStart: ['', [Validators.required]],
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
@@ -74,10 +79,7 @@ export class AddEventComponent implements OnInit {
     const eventData = new FormData();
     eventData.append('name', f.name);
     eventData.append('venue', f.venue);
-    eventData.append('organiser_name', f.organiser_name);
-    eventData.append('email', f.email);
-    eventData.append('phone', f.phone);
-    eventData.append('a_phone', f.a_phone);
+    eventData.append('mode', f.mode);
     eventData.append('registrationStart', f.registrationStart);
     eventData.append('registrationEnd', f.registrationEnd);
     eventData.append('eventDate', f.eventDate);

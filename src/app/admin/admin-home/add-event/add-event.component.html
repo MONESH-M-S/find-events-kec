@@ -43,59 +43,18 @@
                 >
               </div>
               <div class="field col-12 lg:col-4">
-                <label for="organiser_name">Event-Oraginser Name</label>
-                <input
-                  formControlName="organiser_name"
-                  id="organiser_name"
-                  type="text"
-                  pInputText
-                />
+                <label for="mode">Event-Venue</label>
+                <p-dropdown
+                  [options]="mode"
+                  formControlName="mode"
+                  id="mode"
+                  placeholder="Select Event Mode"
+                  [showClear]="true"
+                ></p-dropdown>
                 <small
-                  *ngIf="form.touched && !form.get('organiser_name').value"
+                  *ngIf="form.touched && !form.get('mode').value"
                   class="p-error"
-                  >organiser-name is required</small
-                >
-              </div>
-              <div class="field col-12 lg:col-4">
-                <label for="email">Contact-Email</label>
-                <input
-                  formControlName="email"
-                  id="email"
-                  type="text"
-                  pInputText
-                />
-                <small
-                  *ngIf="form.touched && !form.get('email').value"
-                  class="p-error"
-                  >Email is required</small
-                >
-              </div>
-              <div class="field col-12 lg:col-4">
-                <label for="phone">Phone</label><br />
-                <p-inputMask
-                  mask="999-999-9999"
-                  formControlName="phone"
-                  id="phone"
-                  placeholder="999-999-9999"
-                ></p-inputMask>
-                <small
-                  *ngIf="form.touched && !form.get('phone').value"
-                  class="p-error"
-                  >Phone number is required</small
-                >
-              </div>
-              <div class="field col-12 lg:col-4">
-                <label for="a_phone">Alternative-Phone</label><br />
-                <p-inputMask
-                  mask="999-999-9999"
-                  formControlName="a_phone"
-                  id="a_phone"
-                  placeholder="999-999-9999"
-                ></p-inputMask>
-                <small
-                  *ngIf="form.touched && !form.get('a_phone').value"
-                  class="p-error"
-                  >Alternative Phone number is required</small
+                  >Event-Mode is required</small
                 >
               </div>
               <div class="field col-12 lg:col-4">
@@ -105,6 +64,11 @@
                   dateFormat="dd-mm-yy"
                   inputId="dateformat"
                 ></p-calendar>
+                <small
+                  *ngIf="form.touched && !form.get('registrationStart').value"
+                  class="p-error"
+                  >Event Registration Starting-Date is required</small
+                >
               </div>
               <div class="field col-12 lg:col-4">
                 <label for="dateformat">Registration End-Date</label>
@@ -121,6 +85,11 @@
                   dateFormat="dd-mm-yy"
                   inputId="dateformat"
                 ></p-calendar>
+                <small
+                  *ngIf="form.touched && !form.get('eventDate').value"
+                  class="p-error"
+                  >Event-Date is required</small
+                >
               </div>
               <div class="field col-8">
                 <label for="description">Describe About the Event</label><br />
@@ -159,9 +128,15 @@
                   customUpload="true"
                   (uploadHandler)="onUpload($event)"
                   chooseLabel="Browse"
-                  pTooltip="After Inserting Image, Click Again to Upload"
+                  [auto]="true"
                 >
                 </p-fileUpload>
+                <img
+                  [src]="imageDisplay"
+                  alt=""
+                  [width]="100"
+                  style="margin-top: 5px"
+                />
               </div>
             </div>
             <button
