@@ -25,9 +25,14 @@
     height: 70vh;
   }
 }
-
-@media (max-width: 380px) {
+@media (max-width: 500px) {
   .home {
-    height: 68vh;
+    height: 58vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .home {
+    height: 63vh;
   }
 }

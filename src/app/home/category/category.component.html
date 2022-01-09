@@ -2,11 +2,13 @@
   <div class="title">
     <h1>Events Going on, Right Now!</h1>
   </div>
-  <div class="category">
-    <a href="#">Lorem1</a>
-    <a href="#">Lorem2</a>
-    <a href="#">Lorem3</a>
-    <a href="#">Lorem4</a>
-    <a href="#">Lorem5</a>
-  </div>
+  <article>
+    <div class="category">
+      <a href="#">{{ events[events.length - 1].name }}</a>
+      <a href="#">{{ events[events.length - 2].name }}</a>
+      <a href="#">{{ events[events.length - 3].name }}</a>
+      <a href="#">{{ events[events.length - 4].name }}</a>
+      <a href="#">{{ events[events.length - 5].name }}</a>
+    </div>
+  </article>
 </section>
