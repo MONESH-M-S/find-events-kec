@@ -3,8 +3,39 @@
     <mat-card-title>
       <h2>{{ eventDetail.name }}</h2>
     </mat-card-title>
+    <hr size="2" color="blue" />
     <mat-card-content>
-      <img [src]="eventDetail.image" [alt]="eventDetail.name" [width]="350" />
+      <div class="img">
+        <img [src]="eventDetail.image" [alt]="eventDetail.name" />
+      </div>
+      <div class="detail">
+        <div class="flex">
+          <h3 class="mr-5">
+            <i class="pi pi-building"> </i> Event Venue:
+            <span>{{ eventDetail.venue }}</span>
+          </h3>
+          <h3 class="ml-3">
+            <i class="pi pi-briefcase"></i> Event Oragnised By:
+            <span>{{ eventDetail.organisation }}</span>
+          </h3>
+        </div>
+        <div class="flex">
+          <h3 class="mr-5">
+            <i class="pi pi-compass"></i> Event Mode:
+            <span>{{ eventDetail.mode }}</span>
+          </h3>
+          <h3>
+            <i class="pi pi-calendar"></i> Event Date:
+            <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
+          </h3>
+        </div>
+        <h3>
+          <i class="pi pi-file"></i> Event Description: <br />
+          <div class="description">
+            <div [innerHTML]="eventDetail.description"></div>
+          </div>
+        </h3>
+      </div>
     </mat-card-content>
   </mat-card>
 </section>
