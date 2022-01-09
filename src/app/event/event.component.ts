@@ -9,14 +9,17 @@ import { EventService } from './event.service';
   styleUrls: ['./event.component.scss'],
 })
 export class EventComponent implements OnInit, OnDestroy {
+  isLoading = false;
   events = [];
   private eventSub = new Subscription();
   constructor(private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.eventService.getAllEvent();
     this.eventSub = this.eventService.getEventsUpdated().subscribe((res) => {
       this.events = res.events;
+      this.isLoading = false;
     });
   }
 

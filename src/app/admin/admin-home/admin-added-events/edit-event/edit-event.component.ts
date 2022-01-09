@@ -17,6 +17,7 @@ export class EditEventComponent implements OnInit {
   imageDisplay: string | null;
   mode = ['Online', 'Offline'];
   eventData: any = [];
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,6 +28,7 @@ export class EditEventComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._initForm();
 
     this.route.params.subscribe((params) => {
@@ -37,6 +39,7 @@ export class EditEventComponent implements OnInit {
           if (res.event !== null) {
             this.eventData = res.event[0];
             this._setFormValues();
+            this.isLoading = false;
           }
         });
       }
@@ -63,6 +66,7 @@ export class EditEventComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     if (this.form.invalid) {
       return;
     }
@@ -104,6 +108,7 @@ export class EditEventComponent implements OnInit {
         });
       }
     );
+    this.isLoading = false;
     this.form.reset();
   }
 
@@ -133,9 +138,7 @@ export class EditEventComponent implements OnInit {
       .get('registrationEnd')
       .setValue(new Date(this.eventData.registrationEnd));
     this.form.get('eventDate').setValue(new Date(this.eventData.eventDate));
-    this.form
-      .get('organisation')
-      .setValue(this.eventData.organisation);
+    this.form.get('organisation').setValue(this.eventData.organisation);
     this.form.get('description').setValue(this.eventData.description);
     this.form.get('image').setValue(this.eventData.image);
     this.imageDisplay = this.eventData.image;

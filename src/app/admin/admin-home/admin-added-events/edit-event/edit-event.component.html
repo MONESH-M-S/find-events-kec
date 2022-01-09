@@ -1,4 +1,5 @@
 <p-toast></p-toast>
+<p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
 <section>
   <mat-card>
     <div class="back-button">
@@ -164,6 +165,7 @@
               class="p-button-raised p-button-success p-mr-4"
               (click)="onSubmit()"
               [disabled]="form.invalid"
+              *ngIf="!isLoading"
             ></button>
             <button
               pButton
@@ -174,6 +176,7 @@
               (click)="clearForm()"
               pTooltip="Clear Form"
               tooltipPosition="top"
+              *ngIf="!isLoading"
             ></button>
           </form>
         </div>

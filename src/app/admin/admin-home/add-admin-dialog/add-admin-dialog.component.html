@@ -54,6 +54,8 @@
       label="Submit"
       class="p-button-success p-mt-3"
       (click)="onSubmitForm()"
+      *ngIf="!isLoading"
     ></button>
+    <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
   </form>
 </section>

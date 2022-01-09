@@ -1,4 +1,5 @@
-<div class="card">
+<p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+<div class="card" *ngIf="!isLoading">
   <p-dataView
     #dv
     [value]="events"

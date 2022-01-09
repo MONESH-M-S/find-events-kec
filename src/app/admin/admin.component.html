@@ -34,9 +34,15 @@
         />
       </div>
       <div class="button">
-        <button mat-raised-button [disabled]="form.invalid" color="primary">
+        <button
+          mat-raised-button
+          [disabled]="form.invalid"
+          *ngIf="!isLoading"
+          color="primary"
+        >
           Submit
         </button>
+        <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
       </div>
     </form>
   </mat-card-content>

@@ -10,6 +10,8 @@ import { AdminService } from './admin.service';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
+  isLoading = false;
+
   constructor(
     private adminService: AdminService,
     private router: Router,
@@ -19,6 +21,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    this.isLoading = true;
     this.adminService
       .adminLogin(form.value.email, form.value.password)
       .subscribe((res) => {
@@ -38,5 +41,6 @@ export class AdminComponent implements OnInit {
           this.router.navigate([`admin/${res.admin[0]._id}`]);
         }
       });
+    this.isLoading = false;
   }
 }

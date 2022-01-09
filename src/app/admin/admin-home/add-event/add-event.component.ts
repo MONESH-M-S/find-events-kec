@@ -13,6 +13,7 @@ import { AdminService } from '../../admin.service';
 export class AddEventComponent implements OnInit {
   form: FormGroup;
   id: string;
+  isLoading = false;
   mode = ['Online', 'Offline'];
   imageDisplay!: string | null;
 
@@ -69,6 +70,7 @@ export class AddEventComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     if (this.form.invalid) {
       return;
     }
@@ -112,5 +114,6 @@ export class AddEventComponent implements OnInit {
       }
     );
     this.form.reset();
+    this.isLoading = false;
   }
 }

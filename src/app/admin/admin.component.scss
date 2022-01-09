@@ -30,6 +30,11 @@ mat-card {
       width: 100%;
     }
 
+    p-progressSpinner {
+      display: flex;
+      justify-content: center;
+    }
+
     @media (max-width: 700px) {
       width: 80%;
     }

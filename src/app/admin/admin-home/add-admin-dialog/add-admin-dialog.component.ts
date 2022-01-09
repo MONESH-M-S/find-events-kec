@@ -12,6 +12,7 @@ import { AdminService } from '../../admin.service';
 export class AddAdminDialogComponent implements OnInit {
   form: FormGroup;
   id: string;
+  isLoading = false;
   constructor(
     private dialogRef: MatDialogRef<AddAdminDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: { id: string },
@@ -32,6 +33,7 @@ export class AddAdminDialogComponent implements OnInit {
   }
 
   onSubmitForm() {
+    this.isLoading = true;
     if (this.form.invalid) {
       return;
     }
@@ -59,6 +61,7 @@ export class AddAdminDialogComponent implements OnInit {
         detail: `Admin Created!`,
       });
     });
+    this.isLoading = false;
   }
 
   private _initForm() {
