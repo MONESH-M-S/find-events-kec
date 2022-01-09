@@ -14,6 +14,7 @@ import { TagModule } from 'primeng/tag';
 import { EditorModule } from 'primeng/editor';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CalendarModule } from 'primeng/calendar';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { CalendarModule } from 'primeng/calendar';
     FileUploadModule,
     EditorModule,
     CalendarModule,
+    DataViewModule,
   ],
   exports: [
     TooltipModule,
@@ -49,6 +51,7 @@ import { CalendarModule } from 'primeng/calendar';
     FileUploadModule,
     EditorModule,
     CalendarModule,
+    DataViewModule,
   ],
 })
 export class PrimengModule {}

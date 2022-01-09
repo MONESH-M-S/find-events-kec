@@ -13,11 +13,11 @@
       </h4>
     </mat-card-title>
     <mat-card-content>
-      <div class="grid">
-        <div class="col-12">
+      <div class="p-grid">
+        <div class="p-col-12">
           <form [formGroup]="form">
-            <div class="p-fluid p-formgrid grid">
-              <div class="field col-12 lg:col-4">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="name">Event-Name</label>
                 <input
                   formControlName="name"
@@ -31,7 +31,7 @@
                   >Event-Name is required</small
                 >
               </div>
-              <div class="field col-12 lg:col-4">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="venue">Event-Venue</label>
                 <input
                   formControlName="venue"
@@ -45,7 +45,7 @@
                   >Event-Venue is required</small
                 >
               </div>
-              <div class="field col-12 lg:col-4">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="mode">Event-Venue</label>
                 <p-dropdown
                   [options]="mode"
@@ -60,7 +60,7 @@
                   >Event-Mode is required</small
                 >
               </div>
-              <div class="field col-12 lg:col-4">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="dateformat">Registration Start-Date</label>
                 <p-calendar
                   formControlName="registrationStart"
@@ -73,7 +73,7 @@
                   >Event Registration Starting-Date is required</small
                 >
               </div>
-              <div class="field col-12 lg:col-4">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="dateformat">Registration End-Date</label>
                 <p-calendar
                   formControlName="registrationEnd"
@@ -81,7 +81,7 @@
                   inputId="dateformat"
                 ></p-calendar>
               </div>
-              <div class="field col-12 lg:col-4">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="dateformat">Event Date</label>
                 <p-calendar
                   formControlName="eventDate"
@@ -94,7 +94,7 @@
                   >Event-Date is required</small
                 >
               </div>
-              <div class="field col-12 lg:col-3">
+              <div class="p-field p-col-12 p-lg-3">
                 <label for="organisation">Event Organised by</label>
                 <input
                   formControlName="organisation"
@@ -108,7 +108,7 @@
                   >Event-Organised is required</small
                 >
               </div>
-              <div class="field col-6">
+              <div class="p-field p-col-12 p-lg-6">
                 <label for="description">Describe About the Event</label><br />
                 <p-editor
                   id="description"
@@ -135,7 +135,7 @@
                     </span> </ng-template
                 ></p-editor>
               </div>
-              <div class="field col-3">
+              <div class="p-field p-col-12 p-lg-3">
                 <label for="image">Event Image/Poster</label><br />
                 <p-fileUpload
                   mode="basic"
@@ -161,7 +161,7 @@
               pRipple
               type="button"
               label="Update"
-              class="p-button-raised p-button-success mr-4"
+              class="p-button-raised p-button-success p-mr-4"
               (click)="onSubmit()"
               [disabled]="form.invalid"
             ></button>
@@ -170,7 +170,7 @@
               pRipple
               type="button"
               label="Clear"
-              class="p-button-raised p-button-danger mr-4"
+              class="p-button-raised p-button-danger p-mr-4"
               (click)="clearForm()"
               pTooltip="Clear Form"
               tooltipPosition="top"

@@ -7,7 +7,7 @@
   </div>
   <h2 mat-dialog-title>Add New Admin</h2>
   <form mat-dialog-content [formGroup]="form">
-    <div class="p-inputgroup mb-4">
+    <div class="p-inputgroup p-mb-4">
       <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
       <input
         type="text"
@@ -16,7 +16,7 @@
         placeholder="Username"
       />
     </div>
-    <div class="p-inputgroup mb-4">
+    <div class="p-inputgroup p-mb-4">
       <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
 
       <input
@@ -26,7 +26,7 @@
         placeholder="Email"
       />
     </div>
-    <div class="p-inputgroup mb-4">
+    <div class="p-inputgroup p-mb-4">
       <span class="p-inputgroup-addon"><i class="pi pi-eye"></i></span>
       <input
         type="password"
@@ -35,7 +35,7 @@
         placeholder="password"
       />
     </div>
-    <div class="p-inputgroup mb-4">
+    <div class="p-inputgroup p-mb-4">
       <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
       <input
         type="text"
@@ -45,13 +45,14 @@
       />
     </div>
     <h3 style="margin: 0">Is Admin</h3>
-    <p-inputSwitch class="mb-4" formControlName="isAdmin"></p-inputSwitch><br />
+    <p-inputSwitch class="p-mb-4" formControlName="isAdmin"></p-inputSwitch
+    ><br />
     <button
       pButton
       pRipple
       type="button"
       label="Submit"
-      class="p-button-success mt-3"
+      class="p-button-success p-mt-3"
       (click)="onSubmitForm()"
     ></button>
   </form>

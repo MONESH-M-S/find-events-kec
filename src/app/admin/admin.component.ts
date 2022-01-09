@@ -35,7 +35,6 @@ export class AdminComponent implements OnInit {
             summary: 'Success',
             detail: `Admin verified!`,
           });
-          console.log(res.admin[0]._id);
           this.router.navigate([`admin/${res.admin[0]._id}`]);
         }
       });
