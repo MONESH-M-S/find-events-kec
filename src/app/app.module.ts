@@ -29,6 +29,7 @@ import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './admin/admin-home/add-event/add-event.component';
 import { EventMainComponent } from './event/event-main/event-main.component';
 import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-event/edit-event.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-e
     AddEventComponent,
     EventMainComponent,
     EditEventComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

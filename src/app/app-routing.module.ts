@@ -8,6 +8,7 @@ import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-e
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
 import { AdminComponent } from './admin/admin.component';
+import { ContactComponent } from './contact/contact.component';
 import { EventMainComponent } from './event/event-main/event-main.component';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home/home.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
       { path: ':id', component: EventMainComponent },
       { path: ':id/admin/:aid', component: EventMainComponent },
     ],
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   { path: '**', component: HomeComponent },
 ];
