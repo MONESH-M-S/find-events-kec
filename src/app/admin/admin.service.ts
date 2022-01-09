@@ -48,6 +48,18 @@ export class AdminService {
     );
   }
 
+  getAdminAddedEvents(aid: string) {
+    return this.http.get<{ events: any; message: string }>(
+      `${this.BACKEND_URL}event/admin/${aid}`
+    );
+  }
+
+  getEventById(id: string) {
+    return this.http.get<{ event: any; message: string }>(
+      `${this.BACKEND_URL}event/${id}`
+    );
+  }
+
   deleteAdminById(id: string) {
     return this.http.delete<{ message: string }>(
       `${this.BACKEND_URL}admin/${id}`
@@ -58,6 +70,14 @@ export class AdminService {
   addNewEvent(eventData: any) {
     return this.http.post<{ event: any; message: string }>(
       `${this.BACKEND_URL}event/new`,
+      eventData
+    );
+  }
+
+  // edit event
+  editEvent(eventData: any, id: string) {
+    return this.http.put<{ message: string }>(
+      `${this.BACKEND_URL}event/${id}`,
       eventData
     );
   }

@@ -1,0 +1,31 @@
+section {
+  mat-card {
+    width: 90%;
+    margin: auto;
+    height: 89vh;
+
+    mat-icon {
+      margin-top: -3px;
+    }
+
+    mat-card-title {
+      text-align: center;
+      margin-bottom: 20px;
+
+      h2 {
+        margin: 0;
+      }
+      h4 {
+        color: red;
+        font-weight: 500;
+      }
+    }
+
+    mat-card-content {
+      label {
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+}

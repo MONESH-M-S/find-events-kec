@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AdminService } from '../../admin.service';
-import { mimeType } from './mime-type.validators';
 
 @Component({
   selector: 'app-add-event',
@@ -60,10 +59,7 @@ export class AddEventComponent implements OnInit {
       eventDate: ['', [Validators.required]],
       description: ['', [Validators.required]],
       id: [''],
-      image: [
-        '',
-        { validators: [Validators.required], asyncValidators: [mimeType] },
-      ],
+      image: ['', [Validators.required]],
     });
   }
 
@@ -113,5 +109,6 @@ export class AddEventComponent implements OnInit {
         });
       }
     );
+    this.form.reset();
   }
 }
