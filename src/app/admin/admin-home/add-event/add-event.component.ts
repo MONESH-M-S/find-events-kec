@@ -57,6 +57,7 @@ export class AddEventComponent implements OnInit {
       registrationStart: ['', [Validators.required]],
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
+      organisation: ['', [Validators.required]],
       description: ['', [Validators.required]],
       id: [''],
       image: ['', [Validators.required]],
@@ -79,6 +80,7 @@ export class AddEventComponent implements OnInit {
     eventData.append('registrationStart', f.registrationStart);
     eventData.append('registrationEnd', f.registrationEnd);
     eventData.append('eventDate', f.eventDate);
+    eventData.append('organisation', f.organisation);
     eventData.append('description', f.description);
     eventData.append('id', this.id);
     eventData.append('image', f.image, f.name);
@@ -91,7 +93,7 @@ export class AddEventComponent implements OnInit {
             summary: 'Success',
             detail: res.message,
           });
-          this.router.navigate([`event/${res.event._id}`]);
+          this.router.navigate([`event/${res.event._id}/admin/${this.id}`]);
         } else {
           this.messageService.add({
             severity: 'error',

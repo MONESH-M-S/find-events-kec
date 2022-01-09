@@ -91,7 +91,21 @@
                   >Event-Date is required</small
                 >
               </div>
-              <div class="field col-8">
+              <div class="field col-12 lg:col-3">
+                <label for="organisation">Event Organised by</label>
+                <input
+                  formControlName="organisation"
+                  id="organisation"
+                  type="text"
+                  pInputText
+                />
+                <small
+                  *ngIf="form.touched && !form.get('organisation').value"
+                  class="p-error"
+                  >Event-Organised is required</small
+                >
+              </div>
+              <div class="field col-6">
                 <label for="description">Describe About the Event</label><br />
                 <p-editor
                   id="description"
@@ -118,7 +132,7 @@
                     </span> </ng-template
                 ></p-editor>
               </div>
-              <div class="field col-4">
+              <div class="field col-3">
                 <label for="image">Event Image/Poster</label><br />
                 <p-fileUpload
                   mode="basic"

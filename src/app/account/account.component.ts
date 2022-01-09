@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { UserService } from './user.service';
@@ -13,7 +13,6 @@ import { UserService } from './user.service';
 export class AccountComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AccountComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private messageService: MessageService,
     private router: Router,
     private userService: UserService

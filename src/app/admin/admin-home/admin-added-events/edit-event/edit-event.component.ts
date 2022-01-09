@@ -115,6 +115,7 @@ export class EditEventComponent implements OnInit {
       registrationStart: ['', [Validators.required]],
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
+      organisation: ['', [Validators.required]],
       description: ['', [Validators.required]],
       id: [''],
       image: ['', [Validators.required]],
@@ -132,6 +133,9 @@ export class EditEventComponent implements OnInit {
       .get('registrationEnd')
       .setValue(new Date(this.eventData.registrationEnd));
     this.form.get('eventDate').setValue(new Date(this.eventData.eventDate));
+    this.form
+      .get('organisation')
+      .setValue(this.eventData.organisation);
     this.form.get('description').setValue(this.eventData.description);
     this.form.get('image').setValue(this.eventData.image);
     this.imageDisplay = this.eventData.image;
