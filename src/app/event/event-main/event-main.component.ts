@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Event } from '../event.model';
 import { EventService } from '../event.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { EventService } from '../event.service';
 })
 export class EventMainComponent implements OnInit {
   id: string;
-  eventDetail: any;
+  eventDetail: Event;
+  adminId: string;
+  eventArray = [];
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService
@@ -19,9 +22,15 @@ export class EventMainComponent implements OnInit {
     this.route.params.subscribe((params) => {
       if (params) {
         this.id = params['id'];
+        if (params['aid']) {
+          this.adminId = params['aid'];
+        }
         this.eventService.getEventDetailById(params['id']).subscribe((res) => {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
+            if (this.eventDetail.events) {
+              this.eventArray = this.eventDetail.events[0].split(',');
+            }
           }
         });
       }

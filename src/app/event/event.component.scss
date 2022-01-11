@@ -34,17 +34,6 @@
       flex: 1 1 0;
     }
 
-    .p-rating {
-      margin: 0 0 0.5rem 0;
-    }
-
-    .product-price {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      align-self: flex-end;
-    }
-
     .product-list-action {
       display: flex;
       flex-direction: column;
@@ -75,11 +64,6 @@
     .product-grid-item-content {
       text-align: center;
     }
-
-    .product-price {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
   }
 }
 
@@ -105,10 +89,6 @@
 
     .product-list-detail {
       text-align: center;
-    }
-
-    .product-price {
-      align-self: center;
     }
 
     .product-list-action {

@@ -95,22 +95,40 @@
                   >Event-Date is required</small
                 >
               </div>
-              <div class="p-field p-col-12 p-lg-3">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="organisation">Event Organised by</label>
                 <input
                   formControlName="organisation"
                   id="organisation"
                   type="text"
                   pInputText
+                  placeholder="Event Organised by Club name"
                 />
                 <small
                   *ngIf="form.touched && !form.get('organisation').value"
                   class="p-error"
-                  >Event-Organised is required</small
+                  >Event Organisation is required</small
                 >
               </div>
-              <div class="p-field p-col-12 p-lg-6">
-                <label for="description">Describe About the Event</label><br />
+              <div class="p-field p-col-12 p-lg-4">
+                <label for="events">Select the Events</label>
+                <p-multiSelect
+                  [options]="availableEvents"
+                  formControlName="events"
+                  defaultLabel="Select the Events"
+                  placeholder="Select the type of available events"
+                ></p-multiSelect>
+                <small
+                  *ngIf="form.touched && !form.get('organisation').value"
+                  class="p-error"
+                  >Selecting Events is required</small
+                >
+              </div>
+              <div class="p-field p-col-12 p-lg-8">
+                <label for="description"
+                  >Describe About the Event (Enter the available events & rules
+                  here) </label
+                ><br />
                 <p-editor
                   id="description"
                   formControlName="description"
@@ -136,7 +154,7 @@
                     </span> </ng-template
                 ></p-editor>
               </div>
-              <div class="p-field p-col-12 p-lg-3">
+              <div class="p-field p-col-12 p-lg-4">
                 <label for="image">Event Image/Poster</label><br />
                 <p-fileUpload
                   mode="basic"
@@ -184,3 +202,4 @@
     </mat-card-content>
   </mat-card>
 </section>
+

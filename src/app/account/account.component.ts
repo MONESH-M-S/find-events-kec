@@ -53,6 +53,7 @@ export class AccountComponent implements OnInit {
           summary: 'Success',
           detail: 'Login Successfull',
         });
+        this.dialogRef.close();
         this.router.navigate([`user/${res.user[0]._id}`]);
       });
     }

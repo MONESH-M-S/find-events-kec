@@ -15,9 +15,19 @@ export class EditEventComponent implements OnInit {
   adminId: string;
   eventId: string;
   imageDisplay: string | null;
+  imageClicked: boolean = false;
   mode = ['Online', 'Offline'];
   eventData: any = [];
   isLoading = false;
+  availableEvents = [
+    'Paper Presentation',
+    'Project Presentation',
+    'Aa',
+    'Bb',
+    'Cc',
+    'Dd',
+    'Ee',
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +57,7 @@ export class EditEventComponent implements OnInit {
   }
 
   onUpload(event: any) {
+    this.imageClicked = true;
     const file = event.files[0];
     this.form.patchValue({ image: file });
     this.form.get('image').updateValueAndValidity();
@@ -67,9 +78,15 @@ export class EditEventComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
-    if (this.form.invalid) {
-      return;
+
+    if(!this.imageClicked) {
+      
     }
+
+    if (this.form)
+      if (this.form.invalid) {
+        return;
+      }
     const f = this.form.value;
     const eventData = new FormData();
     eventData.append('name', f.name);
@@ -79,6 +96,8 @@ export class EditEventComponent implements OnInit {
     eventData.append('registrationEnd', f.registrationEnd);
     eventData.append('eventDate', f.eventDate);
     eventData.append('description', f.description);
+    eventData.append('organisation', f.organisation);
+    eventData.append('events', f.events);
     eventData.append('id', this.adminId);
     eventData.append('image', f.image, f.name);
 
@@ -121,6 +140,7 @@ export class EditEventComponent implements OnInit {
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
       organisation: ['', [Validators.required]],
+      events: [[], [Validators.required]],
       description: ['', [Validators.required]],
       id: [''],
       image: ['', [Validators.required]],
@@ -139,6 +159,7 @@ export class EditEventComponent implements OnInit {
       .setValue(new Date(this.eventData.registrationEnd));
     this.form.get('eventDate').setValue(new Date(this.eventData.eventDate));
     this.form.get('organisation').setValue(this.eventData.organisation);
+    this.form.get('events').setValue(this.eventData.events[0].split(','));
     this.form.get('description').setValue(this.eventData.description);
     this.form.get('image').setValue(this.eventData.image);
     this.imageDisplay = this.eventData.image;

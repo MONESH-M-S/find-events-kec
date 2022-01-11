@@ -1,41 +1,40 @@
-<section>
+<section *ngIf="eventDetail">
   <mat-card>
     <mat-card-title>
-      <h2>{{ eventDetail.name }}</h2>
+      <h1 class="p-text-bold" style="font-size: 24px">
+        {{ eventDetail.name }}
+      </h1>
     </mat-card-title>
-    <hr size="2" color="blue" />
     <mat-card-content>
-      <div class="img">
-        <img [src]="eventDetail.image" [alt]="eventDetail.name" />
-      </div>
-      <div class="detail">
-        <div class="p-d-flex">
-          <h3 class="p-mr-5">
-            <i class="pi pi-building"> </i> Event Venue:
-            <span>{{ eventDetail.venue }}</span>
-          </h3>
-          <h3 class="p-ml-3">
-            <i class="pi pi-briefcase"></i> Event Oragnised By:
-            <span>{{ eventDetail.organisation }}</span>
-          </h3>
+      <div class="p-d-flex p-flex-column p-flex-md-row">
+        <div class="img">
+          <img [src]="eventDetail.image" [alt]="eventDetail.name" />
         </div>
-        <div class="p-d-flex">
-          <h3 class="p-mr-5">
-            <i class="pi pi-compass"></i> Event Mode:
-            <span>{{ eventDetail.mode }}</span>
-          </h3>
+        <div class="details">
           <h3>
-            <i class="pi pi-calendar"></i> Event Date:
-            <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
+            Venue: <span>{{ eventDetail.venue }}</span>
           </h3>
+          <br />
+          <h3>
+            Organised By: <span>{{ eventDetail.organisation }}</span>
+          </h3>
+          <br />
+          <h3>
+            Mode: <span>{{ eventDetail.mode }}</span>
+          </h3>
+          <br />
+          <h3>
+            Date: <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
+          </h3>
+          <br />
         </div>
-        <h3>
-          <i class="pi pi-file"></i> Event Description: <br />
-          <div class="description">
-            <div [innerHTML]="eventDetail.description"></div>
-          </div>
-        </h3>
       </div>
     </mat-card-content>
+    <div class="available-events">
+      <h1>The Available Events in {{ eventDetail.name | titlecase }} are,</h1>
+      <ul *ngFor="let event of eventArray">
+        <li>{{ event }}</li>
+      </ul>
+    </div>
   </mat-card>
 </section>

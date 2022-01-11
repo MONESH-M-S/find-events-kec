@@ -15,6 +15,8 @@ import { EditorModule } from 'primeng/editor';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CalendarModule } from 'primeng/calendar';
 import { DataViewModule } from 'primeng/dataview';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -34,6 +36,8 @@ import { DataViewModule } from 'primeng/dataview';
     EditorModule,
     CalendarModule,
     DataViewModule,
+    MultiSelectModule,
+    DialogModule,
   ],
   exports: [
     TooltipModule,
@@ -52,6 +56,8 @@ import { DataViewModule } from 'primeng/dataview';
     EditorModule,
     CalendarModule,
     DataViewModule,
+    MultiSelectModule,
+    DialogModule,
   ],
 })
 export class PrimengModule {}

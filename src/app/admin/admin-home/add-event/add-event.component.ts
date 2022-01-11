@@ -16,6 +16,15 @@ export class AddEventComponent implements OnInit {
   isLoading = false;
   mode = ['Online', 'Offline'];
   imageDisplay!: string | null;
+  availableEvents = [
+    'Paper Presentation',
+    'Project Presentation',
+    'Aa',
+    'Bb',
+    'Cc',
+    'Dd',
+    'Ee',
+  ];
 
   constructor(
     private location: Location,
@@ -59,6 +68,7 @@ export class AddEventComponent implements OnInit {
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
       organisation: ['', [Validators.required]],
+      events: [[], [Validators.required]],
       description: ['', [Validators.required]],
       id: [''],
       image: ['', [Validators.required]],
@@ -83,6 +93,7 @@ export class AddEventComponent implements OnInit {
     eventData.append('registrationEnd', f.registrationEnd);
     eventData.append('eventDate', f.eventDate);
     eventData.append('organisation', f.organisation);
+    eventData.append('events', f.events);
     eventData.append('description', f.description);
     eventData.append('id', this.id);
     eventData.append('image', f.image, f.name);
@@ -113,7 +124,7 @@ export class AddEventComponent implements OnInit {
         });
       }
     );
-    this.form.reset();
+    // this.form.reset();
     this.isLoading = false;
   }
 }

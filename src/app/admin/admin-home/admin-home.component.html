@@ -32,10 +32,10 @@
     </div>
     <div class="detail">
       <h2>
-        {{ adminDetails.name | uppercase }} -
-        {{ adminDetails.department | titlecase }}
+        {{ adminDetails?.name | titlecase }} -
+        {{ adminDetails?.department | uppercase }}
       </h2>
-      <h4>( {{ adminDetails.email }} )</h4>
+      <h4>( {{ adminDetails?.email }} )</h4>
     </div>
   </mat-card-content>
 
