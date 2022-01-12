@@ -38,4 +38,11 @@ export class EventService {
       `${this.BACKEND_URL}user/email/${email}`
     );
   }
+
+  postNewRegistration(form: any) {
+    return this.http.post<{ registration: any; message: string }>(
+      `${this.BACKEND_URL}register/`,
+      form
+    );
+  }
 }

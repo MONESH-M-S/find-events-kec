@@ -1,11 +1,10 @@
 section {
-    .close-icon {
-      justify-content: flex-end;
-    }
+  .close-icon {
+    justify-content: flex-end;
   }
-  
-  p-progressSpinner {
-    display: flex;
-    justify-content: center;
-  }
-  
+}
+
+p-progressSpinner {
+  display: flex;
+  justify-content: center;
+}

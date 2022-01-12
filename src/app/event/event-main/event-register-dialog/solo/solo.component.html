@@ -12,7 +12,7 @@
       <input
         type="text"
         pInputText
-        formControlName="name"
+        formControlName="userName"
         placeholder="Your Name"
       />
     </div>
@@ -44,7 +44,7 @@
         placeholder="Mobile Number (Whatsapp No.)"
       />
     </div>
-    <div class="p-inputgroup p-mb-4">
+    <div class="p-inputgroup p-mb-3">
       <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
       <input
         type="text"
@@ -53,24 +53,31 @@
         placeholder="Department"
       />
     </div>
-    <div class="p-inputgroup p-mb-4">
-      <span class="p-inputgroup-addon"><i class="pi pi-slack"></i></span>
-      <p-dropdown
-        [options]="year"
-        formControlName="yearOfStudy"
-        placeholder="Select a Year of Study"
-        [showClear]="true"
-      ></p-dropdown>
-    </div>
+    <p-dropdown
+      [options]="availableEvents"
+      placeholder="Select the Event"
+      formControlName="subEventName"
+      [showClear]="true" 
+      class="p-mb-3"
+    ></p-dropdown>
     <br />
     <button
       pButton
       pRipple
-      type="button"
+      type="submit"
       label="Submit"
       class="p-button-success p-mt-3"
-      (click)="onSubmitForm()"
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
       *ngIf="!isLoading"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Close"
+      class="p-button-danger p-ml-3"
+      (click)="onClose()"
     ></button>
     <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
   </form>

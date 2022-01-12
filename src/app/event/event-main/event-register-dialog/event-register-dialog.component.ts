@@ -18,22 +18,23 @@ export class EventRegisterDialogComponent implements OnInit {
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA)
     private data: {
-      name: string;
+      eventDetail: Event;
     }
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onClickedSoloEvent() {
     this.dialogRef.close();
-    const name = this.data.name;
+    const event = this.data.eventDetail;
     let dialogBoxSettings = {
-      width: '500px',
+      width: '600px',
       margin: '0 auto',
       disableClose: true,
       hasBackdrop: true,
       data: {
-        name: name,
+        event: event,
       },
     };
     this.dialog.open(SoloComponent, dialogBoxSettings);
@@ -41,14 +42,14 @@ export class EventRegisterDialogComponent implements OnInit {
 
   onClickedTeamEvent() {
     this.dialogRef.close();
-    const name = this.data.name;
+    const event = this.data.eventDetail;
     let dialogBoxSettings = {
       width: '500px',
       margin: '0 auto',
       disableClose: true,
       hasBackdrop: true,
       data: {
-        name: name,
+        event: event,
       },
     };
     this.dialog.open(TeamComponent, dialogBoxSettings);

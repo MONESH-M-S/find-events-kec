@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { EventService } from 'src/app/event/event.service';
+import { Event } from 'src/app/event/event.model';
 
 @Component({
   selector: 'app-solo',
@@ -12,27 +13,21 @@ import { EventService } from 'src/app/event/event.service';
 })
 export class SoloComponent implements OnInit {
   form: FormGroup;
-  eventId: string;
   isLoading = false;
-  year = ['1st Year', '2nd Year', '3rd Year', '4th Year']
+  availableEvents = [];
   constructor(
-    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<SoloComponent>,
     @Inject(MAT_DIALOG_DATA)
-    private data: { name: string },
+    private data: { event: Event },
     private messageService: MessageService,
     private eventService: EventService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.availableEvents = this.data.event.events[0]?.split(',');
     this._initForm();
-    this.route.params.subscribe((params) => {
-      if (params) {
-        this.eventId = params['id'];
-      }
-    });
   }
 
   onClose(): void {
@@ -41,21 +36,21 @@ export class SoloComponent implements OnInit {
 
   private _initForm() {
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
       rollno: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.minLength(10)]],
       department: ['', [Validators.required]],
-      yearOfStudy: ['', [Validators.required]],
       subEventName: ['', [Validators.required]],
-      eventId: [''],
-      eventName: [this.data.name],
+      eventId: [this.data.event._id],
+      eventName: [this.data.event.name],
       userId: [''],
-      registeredDate: ['']
+      registeredDate: [new Date()],
+      type: [''],
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.invalid) {
       return this.messageService.add({
         severity: 'error',
@@ -64,22 +59,49 @@ export class SoloComponent implements OnInit {
       });
     }
 
-    this.getUserIdByEmail(this.form.value.email);
-  }
+    const f = this.form.value;
 
-  private getUserIdByEmail(email: string) {
-    this.eventService.getUserIdByEmail(email).subscribe((res) => {
+    this.eventService.getUserIdByEmail(f.email).subscribe((res) => {
       if (res.id === null) {
         this.dialogRef.close();
-        this.messageService.add({
+        this.router.navigate(['user/signup']);
+        return this.messageService.add({
           severity: 'error',
           summary: 'Error',
           detail: 'Please Signup to Register!',
         });
-        return this.router.navigate(['user/signup']);
+      } else {
+        const form = {
+          userName: f.userName,
+          rollno: f.rollno,
+          email: f.email,
+          phone: f.phone,
+          department: f.department,
+          subEventName: f.subEventName,
+          eventId: f.eventId,
+          eventName: f.eventName,
+          userId: res.id,
+          registeredDate: f.registeredDate,
+          type: f.type,
+        };
+
+        this.eventService.postNewRegistration(form).subscribe((res) => {
+          if (res.registration !== null) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: `${res.message}`,
+            });
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `${res.message}`,
+            });
+          }
+        });
+        this.dialogRef.close();
       }
-
-
     });
   }
 }

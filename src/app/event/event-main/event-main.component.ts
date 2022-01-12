@@ -53,7 +53,7 @@ export class EventMainComponent implements OnInit {
       disableClose: true,
       hasBackdrop: true,
       data: {
-        name: this.eventDetail.name,
+        eventDetail: this.eventDetail
       },
     };
     this.dialog.open(EventRegisterDialogComponent, dialogBoxSettings);
