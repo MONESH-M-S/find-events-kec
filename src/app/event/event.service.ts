@@ -32,4 +32,10 @@ export class EventService {
       `${this.BACKEND_URL}event/${id}`
     );
   }
+
+  getUserIdByEmail(email: string) {
+    return this.http.get<{ id: string; message: string }>(
+      `${this.BACKEND_URL}user/email/${email}`
+    );
+  }
 }

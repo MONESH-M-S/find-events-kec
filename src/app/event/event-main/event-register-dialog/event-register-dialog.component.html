@@ -1,0 +1,27 @@
+<section>
+  <div mat-dialog-content>
+    <h2>Select the type of event you, Registering for</h2>
+    <h4>
+      If you not sure about the type of event, Go Back and Check it out in the
+      description
+    </h4>
+  </div>
+  <div mat-dialog-actions [align]="'end'">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="onClickedSoloEvent()"
+      class="mb-3"
+    >
+      Solo-Event
+    </button>
+    <button
+      mat-flat-button
+      color="accent"
+      (click)="onClickedTeamEvent()"
+      class="mb-3"
+    >
+      Team-Event
+    </button>
+  </div>
+</section>

@@ -5,7 +5,7 @@
       <mat-icon>cancel</mat-icon>
     </button>
   </div>
-  <h2 mat-dialog-title>Add New Admin</h2>
+  <h2 mat-dialog-title>Event Registeration form</h2>
   <form mat-dialog-content [formGroup]="form">
     <div class="p-inputgroup p-mb-4">
       <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
@@ -13,7 +13,16 @@
         type="text"
         pInputText
         formControlName="name"
-        placeholder="Adminname"
+        placeholder="Your Name"
+      />
+    </div>
+    <div class="p-inputgroup p-mb-4">
+      <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+      <input
+        type="text"
+        pInputText
+        formControlName="rollno"
+        placeholder="Your Roll-No."
       />
     </div>
     <div class="p-inputgroup p-mb-4">
@@ -27,12 +36,12 @@
       />
     </div>
     <div class="p-inputgroup p-mb-4">
-      <span class="p-inputgroup-addon"><i class="pi pi-eye"></i></span>
+      <span class="p-inputgroup-addon"><i class="pi pi-mobile"></i></span>
       <input
-        type="password"
-        formControlName="password"
+        type="number"
+        formControlName="phone"
         pInputText
-        placeholder="password"
+        placeholder="Mobile Number (Whatsapp No.)"
       />
     </div>
     <div class="p-inputgroup p-mb-4">
@@ -44,9 +53,16 @@
         placeholder="Department"
       />
     </div>
-    <h3 style="margin: 0">Is Admin</h3>
-    <p-inputSwitch class="p-mb-4" formControlName="isAdmin"></p-inputSwitch
-    ><br />
+    <div class="p-inputgroup p-mb-4">
+      <span class="p-inputgroup-addon"><i class="pi pi-slack"></i></span>
+      <p-dropdown
+        [options]="year"
+        formControlName="yearOfStudy"
+        placeholder="Select a Year of Study"
+        [showClear]="true"
+      ></p-dropdown>
+    </div>
+    <br />
     <button
       pButton
       pRipple

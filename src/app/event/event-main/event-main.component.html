@@ -29,6 +29,9 @@
           <br />
         </div>
       </div>
+      <button mat-flat-button (click)="onClickedRegister()" color="primary">
+        Register
+      </button>
     </mat-card-content>
     <div class="available-events">
       <h1>The Available Events in {{ eventDetail.name | titlecase }} are,</h1>
@@ -38,3 +41,31 @@
     </div>
   </mat-card>
 </section>
+
+<p-dialog
+  header="Confirmation"
+  [(visible)]="showConfirmDialog"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '30vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p>
+    Please read about the available Events and their rules. Once, you have
+    registered only it can be Edited & cannot be Deleted. <br />
+    <br />
+    <span>Note:</span> If Its a team event try to avoid duplicate entries!
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="showConfirmDialog = false"
+      label="Cancel"
+      styleClass="p-button-text p-button-danger"
+    ></p-button>
+    <p-button
+      (click)="onRegisterForEvent()"
+      label="Continue"
+      styleClass="p-button-text p-button-success"
+    ></p-button>
+  </ng-template>
+</p-dialog>

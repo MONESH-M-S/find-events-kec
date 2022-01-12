@@ -30,6 +30,9 @@ import { AddEventComponent } from './admin/admin-home/add-event/add-event.compon
 import { EventMainComponent } from './event/event-main/event-main.component';
 import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-event/edit-event.component';
 import { ContactComponent } from './contact/contact.component';
+import { EventRegisterDialogComponent } from './event/event-main/event-register-dialog/event-register-dialog.component';
+import { SoloComponent } from './event/event-main/event-register-dialog/solo/solo.component';
+import { TeamComponent } from './event/event-main/event-register-dialog/team/team.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { ContactComponent } from './contact/contact.component';
     EventMainComponent,
     EditEventComponent,
     ContactComponent,
+    EventRegisterDialogComponent,
+    SoloComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { Event } from '../event.model';
 import { EventService } from '../event.service';
+import { EventRegisterDialogComponent } from './event-register-dialog/event-register-dialog.component';
 
 @Component({
   selector: 'app-event-main',
@@ -13,9 +15,11 @@ export class EventMainComponent implements OnInit {
   eventDetail: Event;
   adminId: string;
   eventArray = [];
+  showConfirmDialog = false;
   constructor(
     private route: ActivatedRoute,
-    private eventService: EventService
+    private eventService: EventService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -29,11 +33,29 @@ export class EventMainComponent implements OnInit {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
             if (this.eventDetail.events) {
-              this.eventArray = this.eventDetail.events[0].split(',');
+              this.eventArray = this.eventDetail.events[0]?.split(',');
             }
           }
         });
       }
     });
+  }
+
+  onClickedRegister() {
+    this.showConfirmDialog = true;
+  }
+
+  onRegisterForEvent() {
+    this.showConfirmDialog = false;
+    let dialogBoxSettings = {
+      width: '500px',
+      margin: '0 auto',
+      disableClose: true,
+      hasBackdrop: true,
+      data: {
+        name: this.eventDetail.name,
+      },
+    };
+    this.dialog.open(EventRegisterDialogComponent, dialogBoxSettings);
   }
 }

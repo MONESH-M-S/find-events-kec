@@ -17,6 +17,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { DataViewModule } from 'primeng/dataview';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { DialogModule } from 'primeng/dialog';
     DataViewModule,
     MultiSelectModule,
     DialogModule,
+    InputNumberModule,
   ],
   exports: [
     TooltipModule,
@@ -58,6 +60,7 @@ import { DialogModule } from 'primeng/dialog';
     DataViewModule,
     MultiSelectModule,
     DialogModule,
+    InputNumberModule,
   ],
 })
 export class PrimengModule {}

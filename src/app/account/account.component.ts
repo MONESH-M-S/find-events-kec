@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { UserService } from './user.service';
 })
 export class AccountComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<AccountComponent>,
+    private dialogRef: MatDialogRef<AccountComponent>,
     private messageService: MessageService,
     private router: Router,
     private userService: UserService
