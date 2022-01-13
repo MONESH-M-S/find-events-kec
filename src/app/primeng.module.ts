@@ -18,6 +18,8 @@ import { DataViewModule } from 'primeng/dataview';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   imports: [
@@ -40,6 +42,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     MultiSelectModule,
     DialogModule,
     InputNumberModule,
+    MessagesModule,
+    MessageModule,
   ],
   exports: [
     TooltipModule,
@@ -61,6 +65,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     MultiSelectModule,
     DialogModule,
     InputNumberModule,
+    MessagesModule,
+    MessageModule,
   ],
 })
 export class PrimengModule {}

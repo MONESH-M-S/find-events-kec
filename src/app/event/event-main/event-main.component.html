@@ -1,5 +1,6 @@
 <section *ngIf="eventDetail">
   <mat-card>
+    <p-messages [(value)]="msgs"></p-messages>
     <mat-card-title>
       <h1 class="p-text-bold" style="font-size: 24px">
         {{ eventDetail.name }}
@@ -29,7 +30,12 @@
           <br />
         </div>
       </div>
-      <button mat-flat-button (click)="onClickedRegister()" color="primary">
+      <button
+        mat-flat-button
+        (click)="onClickedRegister()"
+        [disabled]="isRegistrationAvailable"
+        color="primary"
+      >
         Register
       </button>
     </mat-card-content>

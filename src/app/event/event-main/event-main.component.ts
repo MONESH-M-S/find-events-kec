@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Event } from '../event.model';
 import { EventService } from '../event.service';
 import { EventRegisterDialogComponent } from './event-register-dialog/event-register-dialog.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-event-main',
@@ -16,6 +17,8 @@ export class EventMainComponent implements OnInit {
   adminId: string;
   eventArray = [];
   showConfirmDialog = false;
+  isRegistrationAvailable = true;
+  msgs = [];
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService,
@@ -32,6 +35,28 @@ export class EventMainComponent implements OnInit {
         this.eventService.getEventDetailById(params['id']).subscribe((res) => {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
+            const expiredMoment = moment(this.eventDetail.registrationEnd);
+            const currentMoment = moment();
+            if (currentMoment.diff(expiredMoment, 'days') < 0) {
+              this.isRegistrationAvailable = false;
+
+              if (currentMoment.diff(expiredMoment, 'days') == -2) {
+                this.msgs.push({
+                  severity: 'info',
+                  summary: 'Last 2 Days for Registration!',
+                });
+              } else if(currentMoment.diff(expiredMoment, 'days') == -1) {
+                this.msgs.push({
+                  severity: 'warn',
+                  summary: 'Last Day for Registration!',
+                });
+              }
+            } else {
+              this.msgs.push({
+                severity: 'error',
+                summary: 'Event Registration Date Overed!',
+              });
+            }
             if (this.eventDetail.events) {
               this.eventArray = this.eventDetail.events[0]?.split(',');
             }
@@ -53,7 +78,7 @@ export class EventMainComponent implements OnInit {
       disableClose: true,
       hasBackdrop: true,
       data: {
-        eventDetail: this.eventDetail
+        eventDetail: this.eventDetail,
       },
     };
     this.dialog.open(EventRegisterDialogComponent, dialogBoxSettings);
