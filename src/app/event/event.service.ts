@@ -40,9 +40,16 @@ export class EventService {
   }
 
   postNewRegistration(form: any) {
-    return this.http.post<{ registration: any; message: string }>(
+    return this.http.post<{ registrationId: string; message: string }>(
       `${this.BACKEND_URL}register/`,
       form
+    );
+  }
+
+  checkAlreadyRegistered(data: any) {
+    return this.http.post<{ count: number; message: string }>(
+      `${this.BACKEND_URL}register/check-registration`,
+      data
     );
   }
 }

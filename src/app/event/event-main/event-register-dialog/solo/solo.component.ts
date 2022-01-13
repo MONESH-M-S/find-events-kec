@@ -46,11 +46,11 @@ export class SoloComponent implements OnInit {
       eventName: [this.data.event.name],
       userId: [''],
       registeredDate: [new Date()],
-      type: [''],
+      type: ['solo'],
     });
   }
 
-  async onSubmit() {
+  onSubmit() {
     if (this.form.invalid) {
       return this.messageService.add({
         severity: 'error',
@@ -85,21 +85,37 @@ export class SoloComponent implements OnInit {
           type: f.type,
         };
 
-        this.eventService.postNewRegistration(form).subscribe((res) => {
-          if (res.registration !== null) {
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: `${res.message}`,
-            });
-          } else {
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Error',
-              detail: `${res.message}`,
-            });
-          }
-        });
+        const checkRegistration = {
+          email: f.email,
+          eventId: f.eventId,
+          subEventName: f.subEventName,
+        };
+
+        this.eventService
+          .checkAlreadyRegistered(checkRegistration)
+          .subscribe((res) => {
+            if (res.count === 0 && res.message == 'Allowed to register') {
+              this.eventService.postNewRegistration(form).subscribe((res) => {
+                if (res.registrationId) {
+                  this.messageService.add({
+                    severity: 'error',
+                    summary: `${res.message}`,
+                  });
+                } else {
+                  this.messageService.add({
+                    severity: 'success',
+                    summary: `${res.message}`,
+                  });
+                }
+              });
+            } else {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: `You have already registered for this event`,
+              });
+            }
+          });
         this.dialogRef.close();
       }
     });
