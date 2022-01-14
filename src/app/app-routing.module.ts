@@ -10,6 +10,7 @@ import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-al
 import { AdminComponent } from './admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
 import { EventMainComponent } from './event/event-main/event-main.component';
+import { ShowRegistrationComponent } from './event/event-main/show-registration/show-registration.component';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home/home.component';
 
@@ -39,11 +40,15 @@ const routes: Routes = [
       { path: '', component: EventComponent },
       { path: ':id', component: EventMainComponent },
       { path: ':id/admin/:aid', component: EventMainComponent },
+      {
+        path: ':id/admin/:aid/show-registration',
+        component: ShowRegistrationComponent,
+      },
     ],
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
   },
   { path: '**', component: HomeComponent },
 ];

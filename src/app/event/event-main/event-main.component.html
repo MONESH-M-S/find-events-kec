@@ -1,6 +1,12 @@
 <section *ngIf="eventDetail">
   <mat-card>
     <p-messages [(value)]="msgs"></p-messages>
+    <div class="button">
+      <button *ngIf="isAdmin" mat-flat-button (click)="openShowRegistration()" color="accent">
+        <mat-icon> layers</mat-icon>
+        Show Registration
+      </button>
+    </div>
     <mat-card-title>
       <h1 class="p-text-bold" style="font-size: 24px">
         {{ eventDetail.name }}

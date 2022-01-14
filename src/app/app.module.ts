@@ -33,6 +33,7 @@ import { ContactComponent } from './contact/contact.component';
 import { EventRegisterDialogComponent } from './event/event-main/event-register-dialog/event-register-dialog.component';
 import { SoloComponent } from './event/event-main/event-register-dialog/solo/solo.component';
 import { TeamComponent } from './event/event-main/event-register-dialog/team/team.component';
+import { ShowRegistrationComponent } from './event/event-main/show-registration/show-registration.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TeamComponent } from './event/event-main/event-register-dialog/team/tea
     EventRegisterDialogComponent,
     SoloComponent,
     TeamComponent,
+    ShowRegistrationComponent,
   ],
   imports: [
     BrowserModule,

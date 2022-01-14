@@ -3,6 +3,14 @@ section {
     width: 90%;
     margin: auto;
 
+    .button {
+      text-align: right;
+
+      mat-icon {
+        margin-top: -3px;
+      }
+    }
+
     &-title {
       text-align: center;
       font-size: 26px;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Event } from '../event.model';
 import { EventService } from '../event.service';
@@ -19,10 +19,12 @@ export class EventMainComponent implements OnInit {
   showConfirmDialog = false;
   isRegistrationAvailable = true;
   msgs = [];
+  isAdmin = false;
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,12 +33,13 @@ export class EventMainComponent implements OnInit {
         this.id = params['id'];
         if (params['aid']) {
           this.adminId = params['aid'];
+          this.isAdmin = true;
         }
         this.eventService.getEventDetailById(params['id']).subscribe((res) => {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
             const expiredMoment = moment(this.eventDetail.registrationEnd);
-            const currentMoment = moment().add(-1,'days')
+            const currentMoment = moment().add(-1, 'days');
             if (currentMoment.diff(expiredMoment, 'days') < 0) {
               this.isRegistrationAvailable = false;
 
@@ -64,6 +67,14 @@ export class EventMainComponent implements OnInit {
         });
       }
     });
+  }
+
+  openShowRegistration() {
+    if (this.isAdmin) {
+      this.router.navigate([
+        `event/${this.id}/admin/${this.adminId}/show-registration`,
+      ]);
+    }
   }
 
   onClickedRegister() {
