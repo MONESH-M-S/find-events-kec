@@ -1,1 +1,116 @@
-<p>show-registration works!</p>
+<section>
+  <mat-card>
+    <div class="events-available p-mt-2" *ngIf="registrationAvailable">
+      <h1 class="p-text-center p-text-bold">{{ eventName }}</h1>
+      <mat-tab-group mat-stretch-tabs>
+        <mat-tab label="Solo-Events">
+          <div class="card p-mt-2" styleClass="p-datatable-gridlines">
+            <p-table
+              [value]="soloEventDetils"
+              [scrollable]="true"
+              scrollHeight="400px"
+            >
+              <ng-template pTemplate="caption">
+                <div class="flex">
+                  <button
+                    (click)="exportExcelSolo()"
+                    mat-button
+                    pTooltip="Download as Excel for Solo event"
+                    tooltipPosition="top"
+                    color="primary"
+                  >
+                    <mat-icon class="download">cloud_download</mat-icon> Excel
+                  </button>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                <tr>
+                  <th pSortableColumn="userName">
+                    Name <p-sortIcon field="userName"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="rollno">
+                    Roll No. <p-sortIcon field="rollno"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="subEventName">
+                    Event Registered For
+                    <p-sortIcon field="subEventName"></p-sortIcon>
+                  </th>
+                  <th>Phone</th>
+                  <th pSortableColumn="department">
+                    Department <p-sortIcon field="department"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="registeredDate">
+                    Registered On
+                    <p-sortIcon field="registeredDate"></p-sortIcon>
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{ product.userName }}</td>
+                  <td>{{ product.rollno }}</td>
+                  <td>{{ product.subEventName }}</td>
+                  <td>{{ product.phone }}</td>
+                  <td>{{ product.department | uppercase }}</td>
+                  <td>{{ product.registeredDate | date: "dd/MM/yy" }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </mat-tab>
+        <mat-tab label="Team-Events">
+          <div class="card p-mt-2" styleClass="p-datatable-gridlines">
+            <p-table
+              [value]="teamEventDetils"
+              [scrollable]="true"
+              scrollHeight="400px"
+            >
+              <ng-template pTemplate="caption">
+                <div class="flex">
+                  <button
+                    (click)="exportExcelTeam()"
+                    mat-button
+                    pTooltip="Download as Excel for Team event"
+                    tooltipPosition="top"
+                    color="primary"
+                  >
+                    <mat-icon class="download">cloud_download</mat-icon> Excel
+                  </button>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                <tr>
+                  <th pSortableColumn="userName">
+                    Name <p-sortIcon field="userName"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="rollno">
+                    Roll No. <p-sortIcon field="rollno"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="subEventName">
+                    Event Registered For
+                    <p-sortIcon field="subEventName"></p-sortIcon>
+                  </th>
+                  <th>Phone</th>
+                  <th pSortableColumn="teamName">
+                    Team Name <p-sortIcon field="teamName"></p-sortIcon>
+                  </th>
+                  <th>Team Members Name</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{ product.userName }}</td>
+                  <td>{{ product.rollno }}</td>
+                  <td>{{ product.subEventName }}</td>
+                  <td>{{ product.phone }}</td>
+                  <td>{{ product.teamName | titlecase }}</td>
+                  <td>{{ product.teamMembersName }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-card>
+</section>

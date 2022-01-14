@@ -9,7 +9,10 @@ import { Event } from './event.model';
 })
 export class EventService {
   BACKEND_URL = environment.BACKEND_URL;
-  private getEvents = new Subject<{ events: Event[] }>();
+  private getAllEvents = new Subject<{ events: Event[] }>();
+  private getEventsRegisterationDetail = new Subject<{
+    registers: any[];
+  }>();
 
   constructor(private http: HttpClient) {}
 
@@ -17,14 +20,14 @@ export class EventService {
     return this.http
       .get<{ events: Event[]; message: string }>(`${this.BACKEND_URL}event/`)
       .subscribe((res) => {
-        this.getEvents.next({
+        this.getAllEvents.next({
           events: res.events,
         });
       });
   }
 
   getEventsUpdated() {
-    return this.getEvents.asObservable();
+    return this.getAllEvents.asObservable();
   }
 
   getEventDetailById(id: string) {
@@ -51,5 +54,22 @@ export class EventService {
       `${this.BACKEND_URL}register/check-registration`,
       data
     );
+  }
+
+  getRegistrationDetailsByEventId(eventId: string) {
+    this.http
+      .get<{ registers: any; message: string }>(
+        `${this.BACKEND_URL}register/${eventId}`
+      )
+
+      .subscribe((res) => {
+        this.getEventsRegisterationDetail.next({
+          registers: res.registers,
+        });
+      });
+  }
+
+  getRegistrationDetailsUpdated() {
+    return this.getEventsRegisterationDetail.asObservable();
   }
 }
