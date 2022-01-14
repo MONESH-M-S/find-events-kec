@@ -67,8 +67,6 @@
                   formControlName="registrationStart"
                   dateFormat="dd-mm-yy"
                   inputId="dateformat"
-                  [showTime]="true" 
-                  [showSeconds]="true"
                 ></p-calendar>
                 <small
                   *ngIf="form.touched && !form.get('registrationStart').value"
@@ -82,8 +80,6 @@
                   formControlName="registrationEnd"
                   dateFormat="dd-mm-yy"
                   inputId="dateformat"
-                  [showTime]="true" 
-                  [showSeconds]="true"
                 ></p-calendar>
               </div>
               <div class="p-field p-col-12 p-lg-4">
@@ -109,7 +105,7 @@
                   placeholder="Event Organised by Club name"
                 />
                 <small
-                  *ngIf="form.touched && !form.get('organisation').value"
+                  *ngIf="form.touched && !form.get('events').value"
                   class="p-error"
                   >Event Organisation is required</small
                 >
@@ -206,4 +202,3 @@
     </mat-card-content>
   </mat-card>
 </section>
-

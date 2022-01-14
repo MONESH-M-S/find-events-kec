@@ -70,7 +70,7 @@ export class TeamComponent implements OnInit {
         return this.messageService.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Please Signup to Register!',
+          detail: 'You need to Signup for Registering!',
         });
       } else {
         const form = {

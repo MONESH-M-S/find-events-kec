@@ -36,7 +36,7 @@ export class EventMainComponent implements OnInit {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
             const expiredMoment = moment(this.eventDetail.registrationEnd);
-            const currentMoment = moment();
+            const currentMoment = moment().add(-1,'days')
             if (currentMoment.diff(expiredMoment, 'days') < 0) {
               this.isRegistrationAvailable = false;
 
@@ -45,7 +45,7 @@ export class EventMainComponent implements OnInit {
                   severity: 'info',
                   summary: 'Last 2 Days for Registration!',
                 });
-              } else if(currentMoment.diff(expiredMoment, 'days') == -1) {
+              } else if (currentMoment.diff(expiredMoment, 'days') == -1) {
                 this.msgs.push({
                   severity: 'warn',
                   summary: 'Last Day for Registration!',

@@ -85,6 +85,7 @@ export class AddEventComponent implements OnInit {
       return;
     }
     const f = this.form.value;
+
     const eventData = new FormData();
     eventData.append('name', f.name);
     eventData.append('venue', f.venue);
