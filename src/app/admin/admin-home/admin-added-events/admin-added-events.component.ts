@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AdminService } from '../../admin.service';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-admin-added-events',
@@ -13,7 +16,9 @@ export class AdminAddedEventsComponent implements OnInit {
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -35,5 +40,19 @@ export class AdminAddedEventsComponent implements OnInit {
 
   onEditEvent(eventId: string) {
     this.router.navigate([`admin/${eventId}/edit/event/${this.id}`]);
+  }
+
+  onDeleteEvent(eventId: string) {
+    let dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '350px',
+      data: { id: this.id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.adminService.getAdminAddedEvents(this.id).subscribe((res) => {
+        if (res.events !== null) {
+          this.events = res.events;
+        }
+      });
+    });
   }
 }

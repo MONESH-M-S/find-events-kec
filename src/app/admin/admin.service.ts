@@ -81,4 +81,11 @@ export class AdminService {
       eventData
     );
   }
+
+  // delete event
+  deleteEvent(eventId: string) {
+    return this.http.delete<{ message: string }>(
+      `${this.BACKEND_URL}event/${eventId}`
+    );
+  }
 }

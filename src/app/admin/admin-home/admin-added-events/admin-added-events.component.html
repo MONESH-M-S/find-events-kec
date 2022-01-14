@@ -20,12 +20,12 @@
           <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-event>
         <tr>
-          <td>{{ product.name }}</td>
-          <td>{{ product.venue }}</td>
-          <td>{{ product.registrationStart | date: "dd/MM/yyyy" }}</td>
-          <td>{{ product.eventDate | date: "dd/MM/yyyy" }}</td>
+          <td>{{ event.name }}</td>
+          <td>{{ event.venue }}</td>
+          <td>{{ event.registrationStart | date: "dd/MM/yyyy" }}</td>
+          <td>{{ event.eventDate | date: "dd/MM/yyyy" }}</td>
           <td>
             <button
               pButton
@@ -34,7 +34,7 @@
               icon="pi pi-eye"
               class="p-button-rounded p-button-help p-button-outlined p-mr-3"
               pTooltip="View Event"
-              (click)="onViewEvent(product._id)"
+              (click)="onViewEvent(event._id)"
             ></button>
             <button
               pButton
@@ -43,7 +43,16 @@
               icon="pi pi-pencil"
               pTooltip="Edit Event"
               class="p-button-rounded p-button-success p-button-outlined p-mr-3"
-              (click)="onEditEvent(product._id)"
+              (click)="onEditEvent(event._id)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-trash"
+              pTooltip="Edit Event"
+              class="p-button-rounded p-button-danger p-button-outlined p-mr-3"
+              (click)="onDeleteEvent(event._id)"
             ></button>
           </td>
         </tr>
