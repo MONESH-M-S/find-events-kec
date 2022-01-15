@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditComponent } from './account/profile/edit/edit.component';
 import { ProfileComponent } from './account/profile/profile.component';
+import { RegistrationDetailComponent } from './account/profile/registration-detail/registration-detail.component';
 import { SignupComponent } from './account/signup/signup.component';
 import { AddEventComponent } from './admin/admin-home/add-event/add-event.component';
 import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-event/edit-event.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: ':id', component: ProfileComponent },
       { path: ':id/edit', component: EditComponent },
+      { path: ':id/register-detail', component: RegistrationDetailComponent },
     ],
   },
   {

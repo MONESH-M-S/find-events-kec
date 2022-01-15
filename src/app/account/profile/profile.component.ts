@@ -52,6 +52,10 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  onClickRegistrationDetail() {
+    this.router.navigate([`user/${this.id}/register-detail`]);
+  }
+
   private _getUserRegistrationDetail(id: string) {
     this.userService.getUserRegistrationDetail(id).subscribe((res) => {
       this.totalNoOfRegistration = res.registers.length;

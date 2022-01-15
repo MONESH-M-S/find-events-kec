@@ -1,0 +1,12 @@
+section {
+  mat-card {
+    width: 90%;
+    margin: auto;
+    height: 85vh;
+  }
+  @media (max-width: 600px) {
+    mat-card {
+      height: 90vh;
+    }
+  }
+}

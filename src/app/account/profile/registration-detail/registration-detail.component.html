@@ -1,1 +1,48 @@
-<p>registration-detail works!</p>
+<section>
+  <mat-card>
+    <div class="card" styleClass="p-datatable-striped">
+      <p-table
+        responsiveLayout="scroll"
+        [value]="registrationDetail"
+        [scrollable]="true"
+        scrollHeight="480px"
+      >
+        <ng-template pTemplate="caption"> Events You Registered,</ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th pSortableColumn="eventName">
+              Event Name <p-sortIcon field="eventName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="subEventName">
+              Sub Event Name <p-sortIcon field="subEventName"></p-sortIcon>
+            </th>
+            <th>Phone No.</th>
+            <th>Roll No.</th>
+            <th pSortableColumn="registeredDate">
+              Registered Date<p-sortIcon field="registeredDate"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-register let-columns="columns">
+          <tr>
+            <td>
+              {{ register.eventName }}
+            </td>
+            <td>
+              {{ register.subEventName }}
+            </td>
+            <td>
+              {{ register.phone }}
+            </td>
+            <td>
+              {{ register.rollno }}
+            </td>
+            <td>
+              {{ register.registeredDate | date: "dd/MM/yy" }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </mat-card>
+</section>
