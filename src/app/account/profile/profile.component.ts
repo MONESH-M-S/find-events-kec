@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
   id: string;
   userDetail: User;
   isLoading = false;
+  userRegistrationDetails = [];
+  totalNoOfRegistration = 0;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -26,6 +28,7 @@ export class ProfileComponent implements OnInit {
     this.route.params.subscribe((params) => {
       if (params) {
         this.id = params['id'];
+        this._getUserRegistrationDetail(params['id']);
         this.userService.getUserDetailById(params['id']).subscribe((res) => {
           if (res.user) {
             this.userDetail = res.user[0];
@@ -37,7 +40,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onDeleteUser() {
-    let dialogRef = this.dialog.open(DeleteComponent, {
+    this.dialog.open(DeleteComponent, {
       width: '450px',
       data: { id: this.id },
     });
@@ -47,5 +50,11 @@ export class ProfileComponent implements OnInit {
     if (this.id) {
       this.router.navigate([`user/${this.id}/edit`]);
     }
+  }
+
+  private _getUserRegistrationDetail(id: string) {
+    this.userService.getUserRegistrationDetail(id).subscribe((res) => {
+      this.totalNoOfRegistration = res.registers.length;
+    });
   }
 }

@@ -1,31 +1,31 @@
 <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
-<section *ngIf="!isLoading"> 
+<section *ngIf="!isLoading">
   <mat-card class="mat-card">
     <mat-card-content>
       <div class="img">
         <img
-          *ngIf="userDetail.gender === 'Male'"
+          *ngIf="userDetail?.gender === 'Male'"
           src="../../../assets/streamline-icon-avatar-5@400x400.png"
           alt=""
         />
         <img
-          *ngIf="userDetail.gender === 'Female'"
+          *ngIf="userDetail?.gender === 'Female'"
           src="../../../assets/streamline-icon-avatar-2@400x400.png"
           alt=""
         />
         <img
-          *ngIf="!userDetail.gender"
+          *ngIf="!userDetail?.gender"
           src="../../../assets/streamline-icon-avatar-neutral@400x400.png"
           alt=""
         />
       </div>
       <div class="user-data">
-        <h3>{{ userDetail.name }}</h3>
-        <h5>( {{ userDetail.email }} )</h5>
-        <h5>( {{ userDetail.phone }} )</h5>
+        <h3>{{ userDetail?.name }}</h3>
+        <h5>( {{ userDetail?.email }} )</h5>
+        <h5>( {{ userDetail?.phone }} )</h5>
       </div>
       <div class="events">
-        <h4>Registered Events: {{ "1" }}</h4>
+        <h4>Registered Events: {{ totalNoOfRegistration }}</h4>
         <p>To View All Your Registered Events,</p>
         <a routerLin="">Click Here</a>
       </div>

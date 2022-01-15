@@ -42,4 +42,12 @@ export class UserService {
       `${this.BACKEND_URL}user/${id}`
     );
   }
+
+  // user-registration details
+  getUserRegistrationDetail(uerId: string) {
+    return this.http
+      .get<{ registers: any; message: string }>(
+        `${this.BACKEND_URL}register/${uerId}/user`
+      )
+  }
 }

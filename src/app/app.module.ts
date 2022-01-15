@@ -35,6 +35,7 @@ import { SoloComponent } from './event/event-main/event-register-dialog/solo/sol
 import { TeamComponent } from './event/event-main/event-register-dialog/team/team.component';
 import { ShowRegistrationComponent } from './event/event-main/show-registration/show-registration.component';
 import { DeleteDialogComponent } from './admin/admin-home/admin-added-events/delete-dialog/delete-dialog.component';
+import { RegistrationDetailComponent } from './account/profile/registration-detail/registration-detail.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { DeleteDialogComponent } from './admin/admin-home/admin-added-events/del
     TeamComponent,
     ShowRegistrationComponent,
     DeleteDialogComponent,
+    RegistrationDetailComponent,
   ],
   imports: [
     BrowserModule,
