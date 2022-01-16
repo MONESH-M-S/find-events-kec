@@ -2,7 +2,12 @@
   <mat-card>
     <p-messages [(value)]="msgs"></p-messages>
     <div class="button">
-      <button *ngIf="isAdmin" mat-flat-button (click)="openShowRegistration()" color="accent">
+      <button
+        *ngIf="isAdmin"
+        mat-flat-button
+        (click)="openShowRegistration()"
+        color="accent"
+      >
         <mat-icon> layers</mat-icon>
         Show Registration
       </button>
@@ -13,12 +18,12 @@
       </h1>
     </mat-card-title>
     <mat-card-content>
-      <div class="p-d-flex p-flex-column p-flex-md-row">
+      <div class="p-d-block p-d-md-flex p-mb-5">
         <div class="img">
           <img [src]="eventDetail.image" [alt]="eventDetail.name" />
         </div>
         <div class="details">
-          <h3>
+          <h3 class="p-mt-5 p-mt-md-0">
             Venue: <span>{{ eventDetail.venue }}</span>
           </h3>
           <br />
@@ -34,22 +39,31 @@
             Date: <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
           </h3>
           <br />
+          <button
+            mat-flat-button
+            (click)="onClickedRegister()"
+            [disabled]="isRegistrationAvailable"
+            color="primary"
+          >
+            Register
+          </button>
         </div>
       </div>
-      <button
-        mat-flat-button
-        (click)="onClickedRegister()"
-        [disabled]="isRegistrationAvailable"
-        color="primary"
-      >
-        Register
-      </button>
     </mat-card-content>
-    <div class="available-events">
-      <h1>The Available Events in {{ eventDetail.name | titlecase }} are,</h1>
-      <ul *ngFor="let event of eventArray">
-        <li>{{ event }}</li>
-      </ul>
+    <div
+      class="below-section p-d-flex p-flex-column p-flex-md-row p-jc-evenly p-mt-5 p-pt-5"
+    >
+      <div class="available-events">
+        <h1>The Available Events in {{ eventDetail.name | titlecase }} are,</h1>
+        <ul *ngFor="let event of eventArray">
+          <li>{{ event }}</li>
+        </ul>
+      </div>
+      <div class="description p-mt-5 p-mt-md-0">
+        <h1 class="p-mb-0">Description (About the event & Rules):</h1>
+        <br />
+        <div class="p-ml-5" [innerHTML]="eventDetail.description"></div>
+      </div>
     </div>
   </mat-card>
 </section>

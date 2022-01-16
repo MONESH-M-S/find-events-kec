@@ -31,6 +31,16 @@ section {
           }
         }
       }
+      .details {
+        h3 {
+          margin: 0;
+          font-weight: 500;
+          font-size: 1.15rem;
+          span {
+            font-weight: 400;
+          }
+        }
+      }
       @media (max-width: 800px) {
         mat-card-content {
           width: 70%;
@@ -43,12 +53,28 @@ section {
       }
     }
     .available-events {
-      margin-top: 30px;
-      text-align: center;
-
       h1 {
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 1.5rem;
         color: #713bd5;
+      }
+      ul {
+        li {
+          font-size: 1.3rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .description {
+      h1 {
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--purple-900);
+      }
+
+      div {
+        font-size: 1.2rem;
       }
     }
   }
