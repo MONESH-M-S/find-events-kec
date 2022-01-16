@@ -15,7 +15,7 @@
           <th pSortableColumn="venue">
             Venue <p-sortIcon field="venue"></p-sortIcon>
           </th>
-          <th>Registration Start-Date</th>
+          <th>Registration End-Date</th>
           <th>Event-Date</th>
           <th></th>
         </tr>
@@ -24,7 +24,7 @@
         <tr>
           <td>{{ event.name }}</td>
           <td>{{ event.venue }}</td>
-          <td>{{ event.registrationStart | date: "dd/MM/yyyy" }}</td>
+          <td>{{ event.registrationEnd | date: "dd/MM/yyyy" }}</td>
           <td>{{ event.eventDate | date: "dd/MM/yyyy" }}</td>
           <td>
             <button

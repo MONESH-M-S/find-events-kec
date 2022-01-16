@@ -64,7 +64,6 @@ export class AddEventComponent implements OnInit {
       name: ['', [Validators.required]],
       venue: ['', [Validators.required]],
       mode: ['', [Validators.required]],
-      registrationStart: ['', [Validators.required]],
       registrationEnd: ['', [Validators.required]],
       eventDate: ['', [Validators.required]],
       organisation: ['', [Validators.required]],
@@ -90,7 +89,6 @@ export class AddEventComponent implements OnInit {
     eventData.append('name', f.name);
     eventData.append('venue', f.venue);
     eventData.append('mode', f.mode);
-    eventData.append('registrationStart', f.registrationStart);
     eventData.append('registrationEnd', f.registrationEnd);
     eventData.append('eventDate', f.eventDate);
     eventData.append('organisation', f.organisation);

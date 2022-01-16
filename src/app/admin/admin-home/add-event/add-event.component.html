@@ -59,25 +59,17 @@
                 >
               </div>
               <div class="p-field p-col-12 p-lg-4">
-                <label for="dateformat">Registration Start-Date</label>
-                <p-calendar
-                  formControlName="registrationStart"
-                  dateFormat="dd-mm-yy"
-                  inputId="dateformat"
-                ></p-calendar>
-                <small
-                  *ngIf="form.touched && !form.get('registrationStart').value"
-                  class="p-error"
-                  >Event Registration Starting-Date is required</small
-                >
-              </div>
-              <div class="p-field p-col-12 p-lg-4">
                 <label for="dateformat">Registration End-Date</label>
                 <p-calendar
                   formControlName="registrationEnd"
                   dateFormat="dd-mm-yy"
                   inputId="dateformat"
                 ></p-calendar>
+                <small
+                  *ngIf="form.touched && !form.get('registrationEnd').value"
+                  class="p-error"
+                  >Registration End-Date is required</small
+                >
               </div>
               <div class="p-field p-col-12 p-lg-4">
                 <label for="dateformat">Event Date</label>
