@@ -19,24 +19,36 @@
     </mat-card-title>
     <mat-card-content>
       <div class="p-d-block p-d-md-flex p-mb-5">
-        <div class="img">
-          <img [src]="eventDetail.image" [alt]="eventDetail.name" />
-        </div>
-        <div class="details">
-          <h3 class="p-mt-5 p-mt-md-0">
-            Venue: <span>{{ eventDetail.venue }}</span>
+        <img
+          class="p-mr-0 p-mr-md-5"
+          [src]="eventDetail.image"
+          [alt]="eventDetail.name"
+        />
+        <div class="details p-ml-0 p-ml-md-5 p-pt-0 p-pt-md-5">
+          <h3 class="p-mt-5">
+            <i class="pi pi-building" style="font-size: 1.35rem"></i> Venue:
+            <span>{{ eventDetail.venue }}</span>
           </h3>
           <br />
           <h3>
-            Organised By: <span>{{ eventDetail.organisation }}</span>
+            <i class="pi pi-briefcase" style="font-size: 1.35rem"></i> Organised
+            By: <span>{{ eventDetail.organisation }}</span>
           </h3>
           <br />
           <h3>
-            Mode: <span>{{ eventDetail.mode }}</span>
+            <i class="pi pi-th-large" style="font-size: 1.35rem"></i> Mode:
+            <span>{{ eventDetail.mode }}</span>
           </h3>
           <br />
           <h3>
-            Date: <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
+            <i class="pi pi-calendar-times" style="font-size: 1.35rem"></i>
+            Registration End Date:
+            <span>{{ eventDetail.registrationEnd | date: "dd/MM/yyyy" }}</span>
+          </h3>
+          <br />
+          <h3>
+            <i class="pi pi-calendar" style="font-size: 1.35rem"></i> Event-Date:
+            <span>{{ eventDetail.eventDate | date: "dd/MM/yyyy" }}</span>
           </h3>
           <br />
           <button
