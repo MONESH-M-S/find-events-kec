@@ -17,13 +17,23 @@ export class AddEventComponent implements OnInit {
   mode = ['Online', 'Offline'];
   imageDisplay!: string | null;
   availableEvents = [
-    'Paper Presentation',
-    'Project Presentation',
-    'Aa',
-    'Bb',
-    'Cc',
-    'Dd',
-    'Ee',
+    'Paper Presentation(Solo)',
+    'Paper Presentation(Team)',
+    'Project Presentation(Team)',
+    'Idea Presentation(Team)',
+    'Quiz(Solo)',
+    'Quiz(Team)',
+    'Poster Submission',
+    'Debate(Solo)',
+    'Speech(Solo)',
+    'IPL Auction(Team)',
+    'Essay Writing(Solo)',
+    'Poem Writing(Solo)',
+    'Drawing(Solo)',
+    'Drawing(Solo)',
+    'Singing(Solo)',
+    'Dancing(Solo)',
+    'Dancing(Team)',
   ];
 
   constructor(
