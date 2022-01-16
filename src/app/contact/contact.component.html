@@ -7,18 +7,59 @@
     <mat-card-content
       class="p-d-flex p-mt-5 p-text-center p-flex-column p-flex-md-row p-jc-center"
     >
-      <div class="img p-mr-5">
+      <div class="img">
         <img
           src="assets/streamline-icon-flying-envelope@400x400.png"
           alt="Mail Image"
           [width]="300"
         />
       </div>
-      <div class="contact-form p-ml-5 p-mt-5">
-        <a href="mailto:moneshms.19eie@kongu.edu" target="_blank"
-          >Click Here,</a
-        >
-        to send a Mail
+      <div class="contact-form p-mt-5">
+        <form #form="ngForm" (ngSubmit)="onFormSubmited(form)">
+          <div class="p-field">
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Your Name"
+              pInputText
+              ngModel
+              required
+            />
+          </div>
+          <div class="p-field">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              pInputText
+              ngModel
+              required
+            />
+          </div>
+          <div class="p-field">
+            <textarea
+              rows="6"
+              cols="24"
+              pInputTextarea
+              autoResize="autoResize"
+              placeholder="Your Query/Suggestion"
+              ngModel
+              name="query"
+              required
+              minlength="3"
+            ></textarea>
+          </div>
+          <button
+            pButton
+            pRipple
+            type="submit"
+            label="Submit"
+            class="p-button-raised p-button-success"
+            [disabled]="form.invalid"
+          ></button>
+        </form>
       </div>
     </mat-card-content>
   </mat-card>

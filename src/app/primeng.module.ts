@@ -20,6 +20,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { MessageModule } from 'primeng/message';
     InputNumberModule,
     MessagesModule,
     MessageModule,
+    InputTextareaModule,
   ],
   exports: [
     TooltipModule,
@@ -67,6 +69,7 @@ import { MessageModule } from 'primeng/message';
     InputNumberModule,
     MessagesModule,
     MessageModule,
+    InputTextareaModule,
   ],
 })
 export class PrimengModule {}

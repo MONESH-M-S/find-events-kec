@@ -3,5 +3,25 @@ section {
     width: 90%;
     margin: auto;
     height: 85vh;
+
+    .img {
+      margin-right: 20px;
+    }
+    .contact-form {
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    mat-card {
+      height: 130vh;
+
+      .img {
+        margin-right: 0;
+      }
+      .contact-form {
+        margin-left: 0;
+      }
+    }
   }
 }
