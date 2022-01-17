@@ -49,4 +49,8 @@ export class AdminHomeComponent implements OnInit {
   addNewEvent() {
     this.router.navigate([`admin/${this.id}/add/event`]);
   }
+
+  viewMessages() {
+    this.router.navigate([`admin/${this.id}/show/messages`]);
+  }
 }

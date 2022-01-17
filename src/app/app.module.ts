@@ -36,6 +36,7 @@ import { TeamComponent } from './event/event-main/event-register-dialog/team/tea
 import { ShowRegistrationComponent } from './event/event-main/show-registration/show-registration.component';
 import { DeleteDialogComponent } from './admin/admin-home/admin-added-events/delete-dialog/delete-dialog.component';
 import { RegistrationDetailComponent } from './account/profile/registration-detail/registration-detail.component';
+import { ShowMessageComponent } from './admin/admin-home/show-message/show-message.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { RegistrationDetailComponent } from './account/profile/registration-deta
     ShowRegistrationComponent,
     DeleteDialogComponent,
     RegistrationDetailComponent,
+    ShowMessageComponent,
   ],
   imports: [
     BrowserModule,

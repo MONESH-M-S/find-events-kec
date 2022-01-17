@@ -8,6 +8,7 @@ import { AddEventComponent } from './admin/admin-home/add-event/add-event.compon
 import { EditEventComponent } from './admin/admin-home/admin-added-events/edit-event/edit-event.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
+import { ShowMessageComponent } from './admin/admin-home/show-message/show-message.component';
 import { AdminComponent } from './admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
 import { EventMainComponent } from './event/event-main/event-main.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: ':id/add/event', component: AddEventComponent },
       { path: ':id/edit/event/:aid', component: EditEventComponent },
       { path: ':id/show/admins', component: ShowAllAdminComponent },
+      { path: ':id/show/messages', component: ShowMessageComponent },
     ],
   },
   {

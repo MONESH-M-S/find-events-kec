@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { Admin } from './admin.model';
+import { Contact } from '../contact/contact.model';
 
 @Injectable({
   providedIn: 'root',
@@ -86,6 +87,20 @@ export class AdminService {
   deleteEvent(eventId: string) {
     return this.http.delete<{ message: string }>(
       `${this.BACKEND_URL}event/${eventId}`
+    );
+  }
+
+  // get-message
+  getMessage() {
+    return this.http.get<{ contact: Contact[]; message: string }>(
+      `${this.BACKEND_URL}contact/`
+    );
+  }
+
+  // delete-message
+  deleteMessage(id :string) {
+    return this.http.delete<{ message: string }>(
+      `${this.BACKEND_URL}contact/${id}`
     );
   }
 }

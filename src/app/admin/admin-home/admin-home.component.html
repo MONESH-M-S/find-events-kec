@@ -20,6 +20,16 @@
     >
       <mat-icon> insert_drive_file</mat-icon> Show All Admin(s)
     </button>
+    <button
+      *ngIf="isAdmin"
+      mat-stroked-button
+      color="warn"
+      (click)="viewMessages()"
+      pTooltip="Click to view Messages - Contact form"
+      tooltipPosition="bottom"
+    >
+      <mat-icon> message</mat-icon> Message(s)
+    </button>
   </mat-card-actions>
   <mat-card-content>
     <div class="img">

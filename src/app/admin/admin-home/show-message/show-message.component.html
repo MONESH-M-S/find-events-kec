@@ -1,0 +1,46 @@
+<section>
+  <mat-card>
+    <h1 class="p-text-bold p-text-center p-mt-3 p-mb-4">
+      Message/Suggestion By the Users
+    </h1>
+    <div class="card">
+      <p-table
+        [value]="messages"
+        styleClass="p-datatable-gridlines"
+        [scrollable]="true"
+        scrollHeight="500px"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="name">
+              Name <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="email">
+              Email <p-sortIcon field="email"></p-sortIcon>
+            </th>
+            <th>Message</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-message>
+          <tr>
+            <td>{{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.message }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-outlined mr-3"
+                pTooltip="Delete Message"
+                (click)="deleteMessage(message._id)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </mat-card>
+</section>
