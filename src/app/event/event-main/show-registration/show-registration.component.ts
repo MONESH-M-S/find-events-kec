@@ -14,6 +14,7 @@ export class ShowRegistrationComponent implements OnInit, OnDestroy {
   soloEventDetils = [];
   teamEventDetils = [];
   eventId: string;
+  totalRegistration = 0;
   registrationAvailable: boolean = false;
   private registerSubscription: Subscription;
   constructor(
@@ -29,10 +30,11 @@ export class ShowRegistrationComponent implements OnInit, OnDestroy {
         this.registerSubscription = this.eventService
           .getRegistrationDetailsUpdated()
           .subscribe((res) => {
-            if (res.registers.length === 0) {
+            if (res.registers?.length === 0) {
               this.registrationAvailable = false;
             } else {
-              this.eventName = res.registers[0].eventName;
+              this.totalRegistration = res.registers?.length;
+              this.eventName = res?.registers[0].eventName;
               res.registers.filter((register) => {
                 if (register.type === 'solo') {
                   this.soloEventDetils.push(register);

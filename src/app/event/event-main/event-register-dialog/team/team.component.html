@@ -71,19 +71,21 @@
         placeholder="Department"
       />
     </div>
-    <p-dropdown
-      [options]="availableEvents"
-      placeholder="Select the Event"
-      formControlName="subEventName"
-      [showClear]="true"
-    ></p-dropdown>
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>Select the Event</mat-label>
+      <mat-select formControlName="subEventName">
+        <mat-option *ngFor="let event of availableEvents" [value]="event">
+          {{ event }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <br />
     <button
       pButton
       pRipple
       type="submit"
       label="Submit"
-      class="p-button-success p-mt-3"
+      class="p-button-success p-mt-2"
       [disabled]="form.invalid"
       (click)="onSubmit()"
       *ngIf="!isLoading"
