@@ -55,6 +55,11 @@ export class ShowAllAdminComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(() => {
       this.adminService.getAllAdmins();
+      this.adminSubscription = this.adminService
+      .getAdminUpdated()
+      .subscribe((res) => {
+        this.admins = res.admins;
+      });
     });
   }
 

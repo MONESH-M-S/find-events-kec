@@ -27,9 +27,13 @@
         <div class="product-list-item">
           <img [src]="event.image" [alt]="event.name" />
           <div class="product-list-detail">
-            <div class="product-name">{{ event.name }}</div>
-            <div class="product-description">{{ event.venue }}</div>
-            <div class="product-description">{{ event.organisation }}</div>
+            <div class="product-name p-mb-3">{{ event.name }}</div>
+            <div class="product-description p-m-0">
+              Venue - {{ event.venue }}
+            </div>
+            <div class="product-description p-mt-2">
+              Organised By - {{ event.organisation }}
+            </div>
           </div>
           <div class="product-list-action">
             <button pButton (click)="onViewEvent(event._id)">View</button>
@@ -42,9 +46,13 @@
         <div class="product-grid-item card">
           <div class="product-grid-item-content">
             <img [src]="event.image" [alt]="event.name" />
-            <div class="product-name">{{ event.name }}</div>
-            <div class="product-description">{{ event.venue }}</div>
-            <div class="product-description">{{ event.organisation }}</div>
+            <div class="product-name p-mb-3">{{ event.name }}</div>
+            <div class="product-description p-m-0">
+              Venue - {{ event.venue }}
+            </div>
+            <div class="product-description p-mt-2">
+              Organised By - {{ event.organisation }}
+            </div>
           </div>
           <div class="product-grid-item-bottom">
             <button pButton (click)="onViewEvent(event._id)">View</button>
