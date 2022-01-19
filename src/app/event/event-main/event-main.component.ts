@@ -15,7 +15,7 @@ export class EventMainComponent implements OnInit {
   id: string;
   eventDetail: Event;
   adminId: string;
-  eventArray = [];
+  eventArray: any = [];
   showConfirmDialog = false;
   isRegistrationAvailable = true;
   msgs = [];
@@ -39,7 +39,7 @@ export class EventMainComponent implements OnInit {
           if (res.event !== null) {
             this.eventDetail = res.event[0];
             const expiredMoment = moment(this.eventDetail.registrationEnd);
-            const currentMoment = moment().add(-1, 'days');
+            const currentMoment = moment().add(-2, 'days');
             if (currentMoment.diff(expiredMoment, 'days') < 0) {
               this.isRegistrationAvailable = false;
 
