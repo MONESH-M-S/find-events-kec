@@ -6,7 +6,7 @@ export const environment = {
   production: true,
   BACKEND_URL: 'https://find-events-kec.herokuapp.com/'
   // BACKEND_URL: 'http://localhost:3000/' 
-};
+ };
 
 /*
  * For easier debugging in development mode, you can import the following file
