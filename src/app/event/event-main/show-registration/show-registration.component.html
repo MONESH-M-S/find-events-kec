@@ -5,7 +5,9 @@
     </h1>
     <div class="events-available p-mt-2" *ngIf="registrationAvailable">
       <h1 class="p-text-center p-text-bold">{{ eventName }}</h1>
-      <h2 class="p-ml-4">Total Registrations, So far - {{totalRegistration}}</h2>
+      <h2 class="p-ml-4">
+        Total Registrations, So far - {{ totalRegistration }}
+      </h2>
       <mat-tab-group mat-stretch-tabs>
         <mat-tab label="Solo-Events">
           <div class="card p-mt-2" styleClass="p-datatable-gridlines">

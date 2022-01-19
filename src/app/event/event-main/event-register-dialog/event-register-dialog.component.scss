@@ -1,9 +1,31 @@
 section {
+  .close-icon {
+    margin-top: -10px;
+    justify-content: flex-end;
+  }
   h2 {
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
-  h4 {
-    font-size: 16px;
+
+  h3 {
+    color: red;
+    font-weight: 500;
   }
+}
+
+p-progressSpinner {
+  display: flex;
+  justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
