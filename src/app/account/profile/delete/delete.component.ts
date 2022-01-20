@@ -35,11 +35,23 @@ export class DeleteComponent implements OnInit {
             detail: 'Deleting User Failed',
           });
         }
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success',
-          detail: 'User Deleted Successfully!',
-        });
+        this.userService
+          .deleteUserRegistration(this.data.id)
+          .subscribe((res) => {
+            if (res.message === "Deleting Registers Failed!") {
+              return this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Deleting User Failed',
+              });
+            } else {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'User Deleted Successfully!',
+              });
+            }
+          });
         this.router.navigate(['/']);
       });
     }

@@ -20,7 +20,24 @@ export class DeleteDialogComponent implements OnInit {
 
   onDeleteClicked() {
     this.adminService.deleteEvent(this.data.id).subscribe((res) => {
-      if (res.message === 'Event Deleted Successfully') {
+      if (res.message == "Event Deleted Successfully") {
+        this.adminService
+          .deleteEventRegistration(this.data.id)
+          .subscribe((res) => {
+            if (res.message == "Deleted Successfully!") {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Deleted Successfully!',
+              });
+            } else {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Deleting Event Failed!',
+              });
+            }
+          });
         this.messageService.add({
           severity: 'success',
           summary: 'Success',

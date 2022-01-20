@@ -9,6 +9,7 @@ import { UserService } from '../../user.service';
 })
 export class RegistrationDetailComponent implements OnInit {
   registrationDetail = [];
+  isRegistrationAvailable = false;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
@@ -21,6 +22,7 @@ export class RegistrationDetailComponent implements OnInit {
           .getUserRegistrationDetail(params['id'])
           .subscribe((res) => {
             if (res.registers !== null) {
+              this.isRegistrationAvailable = true;
               this.registrationDetail = res.registers;
             }
           });

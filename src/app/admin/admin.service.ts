@@ -90,6 +90,13 @@ export class AdminService {
     );
   }
 
+  // delete event-registration
+  deleteEventRegistration(eventId: string) {
+    return this.http.delete<{ message: string }>(
+      `${this.BACKEND_URL}register/event/${eventId}`
+    );
+  }
+
   // get-message
   getMessage() {
     return this.http.get<{ contact: Contact[]; message: string }>(
@@ -98,7 +105,7 @@ export class AdminService {
   }
 
   // delete-message
-  deleteMessage(id :string) {
+  deleteMessage(id: string) {
     return this.http.delete<{ message: string }>(
       `${this.BACKEND_URL}contact/${id}`
     );

@@ -1,6 +1,16 @@
 <section>
   <mat-card>
-    <div class="card" styleClass="p-datatable-striped">
+    <h1
+      *ngIf="!isRegistrationAvailable"
+      class="p-text-bold p-mt-5 p-text-center"
+    >
+      No Event You Registered, Till Now!
+    </h1>
+    <div
+      class="card"
+      styleClass="p-datatable-striped"
+      *ngIf="isRegistrationAvailable"
+    >
       <p-table
         responsiveLayout="scroll"
         [value]="registrationDetail"
