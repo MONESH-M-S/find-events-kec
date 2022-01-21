@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { AdminService } from '../../admin.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-show-message',
@@ -11,7 +12,8 @@ export class ShowMessageComponent implements OnInit {
   messages = [];
   constructor(
     private adminService: AdminService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class ShowMessageComponent implements OnInit {
         }
       });
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

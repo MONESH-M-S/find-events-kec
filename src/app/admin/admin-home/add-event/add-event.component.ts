@@ -26,10 +26,10 @@ export class AddEventComponent implements OnInit {
     'Poster Submission',
     'Debate(Solo)',
     'Speech(Solo)',
+    'Web-App(Team)',
     'IPL Auction(Team)',
     'Essay Writing(Solo)',
     'Poem Writing(Solo)',
-    'Drawing(Solo)',
     'Drawing(Solo)',
     'Singing(Solo)',
     'Dancing(Solo)',
@@ -66,7 +66,6 @@ export class AddEventComponent implements OnInit {
   }
 
   goBack() {
-     
     this.location.back();
   }
 
