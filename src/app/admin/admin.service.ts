@@ -10,6 +10,7 @@ import { Contact } from '../contact/contact.model';
 })
 export class AdminService {
   BACKEND_URL = environment.BACKEND_URL;
+  isAdmin = false;
   private getAdmins = new Subject<{ admins: Admin[] }>();
 
   constructor(private http: HttpClient) {}

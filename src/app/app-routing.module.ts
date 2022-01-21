@@ -10,6 +10,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ShowAllAdminComponent } from './admin/admin-home/show-all-admin/show-all-admin.component';
 import { ShowMessageComponent } from './admin/admin-home/show-message/show-message.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './admin/auth.guard';
 import { ContactComponent } from './contact/contact.component';
 import { EventMainComponent } from './event/event-main/event-main.component';
 import { ShowRegistrationComponent } from './event/event-main/show-registration/show-registration.component';
@@ -31,11 +32,27 @@ const routes: Routes = [
     path: 'admin',
     children: [
       { path: '', component: AdminComponent },
-      { path: ':id', component: AdminHomeComponent },
-      { path: ':id/add/event', component: AddEventComponent },
-      { path: ':id/edit/event/:aid', component: EditEventComponent },
-      { path: ':id/show/admins', component: ShowAllAdminComponent },
-      { path: ':id/show/messages', component: ShowMessageComponent },
+      { path: ':id', component: AdminHomeComponent, canActivate: [AuthGuard] },
+      {
+        path: ':id/add/event',
+        component: AddEventComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: ':id/edit/event/:aid',
+        component: EditEventComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: ':id/show/admins',
+        component: ShowAllAdminComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: ':id/show/messages',
+        component: ShowMessageComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   {
@@ -43,10 +60,15 @@ const routes: Routes = [
     children: [
       { path: '', component: EventComponent },
       { path: ':id', component: EventMainComponent },
-      { path: ':id/admin/:aid', component: EventMainComponent },
+      {
+        path: ':id/admin/:aid',
+        component: EventMainComponent,
+        canActivate: [AuthGuard],
+      },
       {
         path: ':id/admin/:aid/show-registration',
         component: ShowRegistrationComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },

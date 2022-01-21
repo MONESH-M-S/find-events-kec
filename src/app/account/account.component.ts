@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { AdminService } from '../admin/admin.service';
 import { UserService } from './user.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AccountComponent implements OnInit {
     private dialogRef: MatDialogRef<AccountComponent>,
     private messageService: MessageService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {}
@@ -48,6 +50,7 @@ export class AccountComponent implements OnInit {
             detail: `${res.message}`,
           });
         }
+        this.adminService.isAdmin = false;
         this.messageService.add({
           severity: 'success',
           summary: 'Success',

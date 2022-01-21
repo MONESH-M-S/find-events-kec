@@ -33,6 +33,7 @@ export class AdminComponent implements OnInit {
           });
         }
         if (res.admin) {
+          this.adminService.isAdmin = true;
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
